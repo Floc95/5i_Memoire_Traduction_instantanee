@@ -124,7 +124,7 @@ Avant toute chose, nous allons commencer par définir le scénario, sans quoi, il 
 
 \paragraph{Notre scénario}
 
-Dans un cadre professionnel, 10 personnes de nationalités différentes et donc ne parlant pas la même langue se joignent autour d’une table afin d’avoir une réunion. Chaque personne parlera dans sa langue maternelle.
+Dans un cadre professionnel, dix personnes de nationalités différentes et donc ne parlant pas la même langue se joignent autour d’une table afin d’avoir une réunion. Chaque personne parlera dans sa langue maternelle.
 Afin que tout le monde puissent comprendre ce que les autres disent et que la réunion soit dynamique, un système sera mis en place afin de traduire chaque personne et de retranscrire vocalement la traduction. Ce système sera relativement poussé puisqu’il traduira en temps réel, c’est-à-dire qu’il fera la traduction alors même que l’interlocuteur n’a pas fini sa phrase. De plus, ce système sera capable d’analyser les émotions dans la voix et de la restituer dans la synthèse vocale.
 
 Nous allons devoir identifier chaque composante de ce système dans notre scénario et affiner celui-ci.
@@ -133,7 +133,7 @@ Nous allons devoir identifier chaque composante de ce système dans notre scénari
 
 \paragraph{Le contexte}
 
-Premièrement, nous allons devoir déterminer le contexte de la future discutions pour notre système. En effet, que le système sache dans quelle contexte se situe la discussion est très important car il permettra d’améliorer grandement la fiabilité de la traduction. Certains mots pourront être choisis à la place d’autres, ce qui rendra la traduction plus fidèle.
+Premièrement, nous allons devoir déterminer le contexte de la future discutions pour notre système. En effet, que le système sache dans quelle contexte se situe la discussion est très important car il permettra d’améliorer grandement la fiabilité de la traduction. Lors de la traduction le niveau de langage approprié pourra être choisi, ce qui rendra la traduction plus fidèle.
 
 On pourrait imaginer que le système analyse la discussion afin de déterminer ce contexte mais le système serait moins efficace le temps de cette analyse. C’est pourquoi nous allons partir du principe que quelqu’un initialise le contexte avant la réunion (via une interface par exemple). Le contexte choisi par cette personne sera donc « Professionnel ».
 
@@ -141,11 +141,11 @@ On pourrait imaginer que le système analyse la discussion afin de déterminer ce 
 
 Une fois le contexte choisi, la réunion peut commencer. Les personnes commenceront alors à parler. Ici nous trouvons alors un autre problème : Comment détecter qui parle ? Et dans quelle langue ?
 
-Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures afin d’identifier chaque personne si le système n’avait qu’un micro central. Cela fonctionnerait certainement mais dans ce cas, comment restituer dans la langue de la personne la traduction sans avoir une quincophonie de traduction dans la salle ? Il nous paraît alors évident qu’il soit nécessaire que chaque participant ai une oreillette dans laquelle on lui traduit les discussions.
+Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures afin d’identifier chaque personne si le système n’avait qu’un micro central. Cela fonctionnerait certainement mais dans ce cas, comment restituer dans la langue de la personne la traduction sans avoir une cacophonique de traduction dans la salle ? Il nous paraît alors évident qu’il soit nécessaire que chaque participant ai une oreillette dans laquelle on lui traduit les discussions.
 
 Afin d’éviter un processus d’identification des propriétaires par rapport à leur voix afin de ne pas leur traduire leur propre parole, il nous a paru plus simple de supposer que les oreillettes contiennent un micro dans lequel parle l’interlocuteur. De cette manière, chaque personne sera identifiée de manière simple et sûre.
 
-Pour ce qui est de la seconde question, c’est-à-dire de comment connaitre la langue, il s’agira de la détecter en fonction de ce que la personne dira. Un peu à la manière d’un Google Translate avec l’écrit. Mais nous reviendront sur la réalisation de cette tâche plus tard.
+Pour ce qui est de la seconde question, c’est-à-dire de comment connaître la langue, il s’agira de la détecter en fonction de ce que la personne dira. Un peu à la manière d’un Google Translate avec l’écrit. Mais nous reviendront sur la réalisation de cette tâche plus tard.
 
 \paragraph{Reconnaissance automatique de la parole}
 
@@ -161,9 +161,9 @@ Il est désormais temps de restituer la traduction à chaque interlocuteur. Pour r
 
 \paragraph{Émotions}
 
-Il temps de parler d'une composante qui est transverse à plusieures autres, citées plus haut. Il s'agit de l'émotion, nous souhaitons que la traduction permette à celui qui écoute de ressentir l'émotion transmise par la personne qui parle. Pour se faire, il vas falloir analyser la voix (Speech To Text), en analyser les émotions puis la retranscrire dans le choix certains mots peut-être, durant la traduction. Puis il faudra la retranscrire via la synthèse vocale de la manière la plus fidèle possible. 
+Il temps de parler d'une composante qui est transverse à plusieurs autres, citées plus haut. Il s'agit de l'émotion, nous souhaitons que la traduction permette à celui qui écoute de ressentir l'émotion transmise par la personne qui parle. Pour se faire, il vas falloir analyser la voix (Speech To Text), en analyser les émotions puis la retranscrire dans le choix de certains mots peut-être, durant la traduction. Puis il faudra la retranscrire via la synthèse vocale de la manière la plus fidèle possible. 
 
-La composantes de l'émotion est très interressante car c'est quelque chose qui n'est pas commun, il y a eu des recherche sur le sujet mais ce n'est pas quelque chose d'aussi \og banale \fg que les autres composantes déjà présentées. C'est pourquoi nous aborderons chaque composantes de manière détaillée mais de limité puis nous nous focaliserons sur l'émotion dans notre scénario, comment la détecter, comment la comprendre et comment la retransmettre.
+La composantes de l'émotion est très intéressante car encore absente des solutions temps réel actuel, sa détection et synthétisation en temps réel est un problème toujours non résolu alors que son apport en terme de dynamisme comme d'aide à la compréhension -qui sont deux facteurs très important pour un système temps réel. C'est pourquoi nous nous pencherons plus particulièrement sur ce facteur et détaillerons comment la détecter, comment la comprendre et comment la retransmettre dans les limites imposés de notre scénario.
 
 
 %% <== Fin de l'introduction
@@ -182,6 +182,16 @@ La composantes de l'émotion est très interressante car c'est quelque chose qui n
 La reconnaissance automatique de la parole est un système qui permet d'analyser la parole d'une personne pour la retranscrire sous la forme d'un texte.
 
 Cette technique est fréquemment utilisé de nos jours. Que ce soit dans les serveurs vocaux (messageries, assistance...), sur un ordinateur avec la dictée vocale ou dans les assistants personnels (Google Now, Siri).
+
+\subsection{Problématique liées, Cas générique Vs Nous, four tout j'ai débordé sur les solutions...}
+
+La reconnaissance vocale se voit opposé deux obstacles : l'isolement de la voix puis l'isolement des membres constituant de la paroles.
+
+Ces deux problématiques ont déjà été résolu mainte fois par le passé par différents procédés. D'abord l'isolement par rapport aux bruits parasites se fait souvent en tranchant les bandes de fréquences hors du spectre de la voix humaine ainsi que le retranchement des fréquences "`d'arrière plan"' qui sont détecté tout au long de la prise de son ainsi qu'en détectant le volume. Dans un second temps il faut isoler les phrases et les mots pour permettre par la suite leur traitement. TODO 
+
+L'isolation de la voix dans notre cas ne nécessite pas une suppression de bruit parasite poussé, une sale de réunion n'étant normalement pas sujette aux perturbations que l'ont peut retrouver dans la rue et chacun de nos participant étant doté d'un micro la sélection d'une voix peut se faire simplement via son volume sonore.
+
+\textbf{TODO} Algo de speech to text déjà existant, blah blah -> pas trop notre problème ici
 
 \subsection{Solutions}
 
