@@ -1,0 +1,29 @@
+\select@language {french}
+\contentsline {chapter}{\numberline {1}Introduction \`a la probl\'ematique}{2}
+\contentsline {section}{\numberline {1.1}Le sc\'enario}{2}
+\contentsline {paragraph}{Notre sc\'enario}{2}
+\contentsline {section}{\numberline {1.2}Les composantes}{2}
+\contentsline {paragraph}{Le contexte}{2}
+\contentsline {paragraph}{Identification et langues}{3}
+\contentsline {paragraph}{Reconnaissance automatique de la parole}{3}
+\contentsline {paragraph}{Traduction}{3}
+\contentsline {paragraph}{Synth\`ese vocale}{3}
+\contentsline {paragraph}{\'Emotions}{3}
+\contentsline {chapter}{\numberline {2}R\'esolution du syst\`eme}{5}
+\contentsline {section}{\numberline {2.1}Reconnaissance automatique de la parole}{5}
+\contentsline {subsection}{\numberline {2.1.1}Pr\'esentation et but}{5}
+\contentsline {subsection}{\numberline {2.1.2}Solutions}{5}
+\contentsline {section}{\numberline {2.2}Traduction}{5}
+\contentsline {subsection}{\numberline {2.2.1}Pr\'esentation et but}{5}
+\contentsline {subsection}{\numberline {2.2.2}Solutions}{5}
+\contentsline {section}{\numberline {2.3}Synth\`ese vocale}{5}
+\contentsline {subsection}{\numberline {2.3.1}Pr\'esentation et but}{5}
+\contentsline {subsection}{\numberline {2.3.2}Solutions}{5}
+\contentsline {section}{\numberline {2.4}\'Emotions}{6}
+\contentsline {subsection}{\numberline {2.4.1}Pr\'esentation et but}{6}
+\contentsline {subsection}{\numberline {2.4.2}Travaux sur le sujet}{6}
+\contentsline {subsection}{\numberline {2.4.3}Solutions}{6}
+\contentsline {chapter}{\numberline {3}Aller plus loin}{7}
+\vspace *{\baselineskip }
+\contentsline {chapter}{Liste des Figures}{8}
+\contentsline {chapter}{Liste des Tableaux}{9}

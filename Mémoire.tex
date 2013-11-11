@@ -1,0 +1,280 @@
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,oneside,10pt]{report}
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt / 11pt / 12pt
+
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[francais]{babel} %francais, polish, spanish, ...
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+\usepackage{lmodern} %Type1-font for non-english texts and characters
+
+
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx} %%For loading graphic files
+%\usepackage{subfig} %%Subfigures inside a figure
+%\usepackage{pst-all} %%PSTricks - not useable with pdfLaTeX
+
+%% Please note:
+%% Images can be included using \includegraphics{Dateiname}
+%% resp. using the dialog in the Insert menu.
+%% 
+%% The mode "LaTeX => PDF" allows the following formats:
+%%   .jpg  .png  .pdf  .mps
+%% 
+%% The modes "LaTeX => DVI", "LaTeX => PS" und "LaTeX => PS => PDF"
+%% allow the following formats:
+%%   .eps  .ps  .bmp  .pict  .pntg
+
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+
+%% Line Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{setspace}
+%\singlespacing        %% 1-spacing (default)
+%\onehalfspacing       %% 1,5-spacing
+%\doublespacing        %% 2-spacing
+
+
+%% Other Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide} %%Smaller margins = more text per page.
+%\usepackage{fancyhdr} %%Fancy headings
+%\usepackage{longtable} %%For tables, that exceed one page
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TODO:
+% 1. Edit the used packages and their options (see above).
+% 2. If you want, add a BibTeX-File to the project
+%    (e.g., 'literature.bib').
+% 3. Happy TeXing!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Options / Modifications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{options} %You need a file 'options.tex' for this
+%% ==> TeXnicCenter supplies some possible option files
+%% ==> with its templates (File | New from Template...).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pagestyle{empty} %No headings for the first pages.
+
+
+%% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Write your text here or include other files.
+
+%% The simple version:
+\title{Mémoire}
+\author{Florian Constant et Aubry Gudel}
+%\date{} %%If commented, the current date is used.
+\maketitle
+
+%% The nice version:
+%\input{titlepage} %%You need a file 'titlepage.tex' for this.
+%% ==> TeXnicCenter supplies a possible titlepage file
+%% ==> with its templates (File | New from Template...).
+
+
+%% Inhaltsverzeichnis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents %Table of contents
+\cleardoublepage %The first chapter should start on an odd page.
+
+\pagestyle{plain} %Now display headings: headings / fancy / ...
+
+
+
+%% Chapters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Write your text here or include other files.
+
+%\input{intro} %You need a file 'intro.tex' for this.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Introduction:
+
+\chapter{Introduction à la problématique}\label{introduction}
+
+\section{Le scénario}\label{scenario}
+Avant toute chose, nous allons commencer par définir le scénario, sans quoi, il serait difficile de se poser des limites dans nos réflexions.
+
+\paragraph{Notre scénario}
+
+Dans un cadre professionnel, 10 personnes de nationalités différentes et donc ne parlant pas la même langue se joignent autour d’une table afin d’avoir une réunion. Chaque personne parlera dans sa langue maternelle.
+Afin que tout le monde puissent comprendre ce que les autres disent et que la réunion soit dynamique, un système sera mis en place afin de traduire chaque personne et de retranscrire vocalement la traduction. Ce système sera relativement poussé puisqu’il traduira en temps réel, c’est-à-dire qu’il fera la traduction alors même que l’interlocuteur n’a pas fini sa phrase. De plus, ce système sera capable d’analyser les émotions dans la voix et de la restituer dans la synthèse vocale.
+
+Nous allons devoir identifier chaque composante de ce système dans notre scénario et affiner celui-ci.
+
+\section{Les composantes}\label{composantes}
+
+\paragraph{Le contexte}
+
+Premièrement, nous allons devoir déterminer le contexte de la future discutions pour notre système. En effet, que le système sache dans quelle contexte se situe la discussion est très important car il permettra d’améliorer grandement la fiabilité de la traduction. Certains mots pourront être choisis à la place d’autres, ce qui rendra la traduction plus fidèle.
+
+On pourrait imaginer que le système analyse la discussion afin de déterminer ce contexte mais le système serait moins efficace le temps de cette analyse. C’est pourquoi nous allons partir du principe que quelqu’un initialise le contexte avant la réunion (via une interface par exemple). Le contexte choisi par cette personne sera donc « Professionnel ».
+
+\paragraph{Identification et langues}
+
+Une fois le contexte choisi, la réunion peut commencer. Les personnes commenceront alors à parler. Ici nous trouvons alors un autre problème : Comment détecter qui parle ? Et dans quelle langue ?
+
+Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures afin d’identifier chaque personne si le système n’avait qu’un micro central. Cela fonctionnerait certainement mais dans ce cas, comment restituer dans la langue de la personne la traduction sans avoir une quincophonie de traduction dans la salle ? Il nous paraît alors évident qu’il soit nécessaire que chaque participant ai une oreillette dans laquelle on lui traduit les discussions.
+
+Afin d’éviter un processus d’identification des propriétaires par rapport à leur voix afin de ne pas leur traduire leur propre parole, il nous a paru plus simple de supposer que les oreillettes contiennent un micro dans lequel parle l’interlocuteur. De cette manière, chaque personne sera identifiée de manière simple et sûre.
+
+Pour ce qui est de la seconde question, c’est-à-dire de comment connaitre la langue, il s’agira de la détecter en fonction de ce que la personne dira. Un peu à la manière d’un Google Translate avec l’écrit. Mais nous reviendront sur la réalisation de cette tâche plus tard.
+
+\paragraph{Reconnaissance automatique de la parole}
+
+A ce stade, il nous faut encore réussir à mettre sous format textuel ce qu’une personne dit afin de le traduire par la suite. Il existe des logiciels spécialisé dans ce travail, on les appelle des logiciels de Speech To Text, ou en français : \og Reconnaissance automatique de la parole \fg. Il existe une multitude de logiciels comme ceci, c’est pourquoi nous n’allons pas plus en parler pour le moment et estimé que ce travail est fait.
+
+\paragraph{Traduction}
+
+Maintenant que l’on dispose du texte, nous pouvons enfin le traduire dans toutes les autres langues présentes dans la salle. Pour ce faire nous allons devoir utiliser un traducteur, seulement, pour parfaire la traduction, le traducteur devra prendre en compte le contexte de la discussion afin de choisir les traductions les plus adaptées. 
+
+\paragraph{Synthèse vocale}
+
+Il est désormais temps de restituer la traduction à chaque interlocuteur. Pour réaliser cela, nous allons devoir faire appel à un système de synthèse vocale. Une synthèse vocale a pour but d’exprimer un texte par la parole, de la manière la plus naturelle et humaine possible dans notre cas. De nos jours, il existe une multitude de logiciels de synthèse vocale, nous en parlerons plus en détails dans une autre partie.
+
+\paragraph{Émotions}
+
+Il temps de parler d'une composante qui est transverse à plusieures autres, citées plus haut. Il s'agit de l'émotion, nous souhaitons que la traduction permette à celui qui écoute de ressentir l'émotion transmise par la personne qui parle. Pour se faire, il vas falloir analyser la voix (Speech To Text), en analyser les émotions puis la retranscrire dans le choix certains mots peut-être, durant la traduction. Puis il faudra la retranscrire via la synthèse vocale de la manière la plus fidèle possible. 
+
+La composantes de l'émotion est très interressante car c'est quelque chose qui n'est pas commun, il y a eu des recherche sur le sujet mais ce n'est pas quelque chose d'aussi \og banale \fg que les autres composantes déjà présentées. C'est pourquoi nous aborderons chaque composantes de manière détaillée mais de limité puis nous nous focaliserons sur l'émotion dans notre scénario, comment la détecter, comment la comprendre et comment la retransmettre.
+
+
+%% <== Fin de l'introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Résolution du système:
+
+\chapter{Résolution du système}\label{system}
+
+
+\section{Reconnaissance automatique de la parole}\label{speechtotext}
+
+\subsection{Présentation et but}
+
+La reconnaissance automatique de la parole est un système qui permet d'analyser la parole d'une personne pour la retranscrire sous la forme d'un texte.
+
+Cette technique est fréquemment utilisé de nos jours. Que ce soit dans les serveurs vocaux (messageries, assistance...), sur un ordinateur avec la dictée vocale ou dans les assistants personnels (Google Now, Siri).
+
+\subsection{Solutions}
+
+TODO
+
+
+\section{Traduction}\label{traduction}
+
+\subsection{Présentation et but}
+
+TODO
+
+\subsection{Solutions}
+
+TODO
+
+
+\section{Synthèse vocale}\label{synthese}
+
+\subsection{Présentation et but}
+
+TODO
+
+\subsection{Solutions}
+
+TODO
+
+
+\section{Émotions}\label{emotions}
+
+% Peut être remanié, faire d'autres sous parties etc.
+
+\subsection{Présentation et but}
+
+TODO
+
+\subsection{Travaux sur le sujet}
+
+TODO
+
+\subsection{Solutions}
+
+TODO
+
+
+%% <== Fin de la résolution du système
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Aller plus loin:
+
+\chapter{Aller plus loin}\label{system}
+
+TODO
+
+
+%% <== Fin de Aller plus loin
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY AND OTHER LISTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% A small distance to the other stuff in the table of contents (toc)
+\addtocontents{toc}{\protect\vspace*{\baselineskip}}
+
+%% The Bibliography
+%% ==> You need a file 'literature.bib' for this.
+%% ==> You need to run BibTeX for this (Project | Properties... | Uses BibTeX)
+%\addcontentsline{toc}{chapter}{Bibliography} %'Bibliography' into toc
+%\nocite{*} %Even non-cited BibTeX-Entries will be shown.
+%\bibliographystyle{alpha} %Style of Bibliography: plain / apalike / amsalpha / ...
+%\bibliography{literature} %You need a file 'literature.bib' for this.
+
+%% The List of Figures
+\clearpage
+\addcontentsline{toc}{chapter}{Liste des Figures}
+\listoffigures
+
+%% The List of Tables
+\clearpage
+\addcontentsline{toc}{chapter}{Liste des Tableaux}
+\listoftables
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+%% ==> Write your text here or include other files.
+
+%\input{FileName} %You need a file 'FileName.tex' for this.
+
+
+\end{document}
+
