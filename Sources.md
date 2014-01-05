@@ -14,3 +14,4 @@
 - [Acoustic Correlates of Emotion Dimensions in View of SpeechSynthesis](ftp://134.96.191.190/papers/local/schroeder_etal2001.pdf)
 - [Emotional Speech Synthesis: A Review](ftp://ftp.sb.dfki.de/papers/local/schroeder2001.pdf)
 - [SIGMO - talk and understand in more than 25 languages!!](http://www.indiegogo.com/projects/sigmo-talk-and-understand-in-more-than-25-languages)
+- [Groupe SLP à LIMSI](http://www.limsi.fr/Scientifique/tlp/intro-e.html)
