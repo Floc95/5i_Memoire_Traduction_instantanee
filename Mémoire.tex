@@ -101,7 +101,7 @@
 
 
 %% Inhaltsverzeichnis %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\tableofcontents %Table of contents
+\setcounter{tocdepth}{3} \tableofcontents %Table of contents
 \cleardoublepage %The first chapter should start on an odd page.
 
 \pagestyle{plain} %Now display headings: headings / fancy / ...
@@ -229,12 +229,54 @@ Pour ce qui est du problème de parole concurrente (deux interlocuteurs se metten
 
 \subsection{Présentation et but}
 
-TODO
+\paragraph{}La traduction est le principe de faire passer un texte d'une langue à une autre.
+Elle sert à représenter un texte dans une autre langue, elle en garde donc le même sens et les deux textes comportes donc beaucoup de similitudes.
+
+\paragraph{}Historiquement, la traduction à d'abord été un travail d'humain. Puis par la suite, c'est l'informatique qui s'en est chargé. Lorsqu'un système informatique traduit un texte, nous appelons cela de la "traduction automatique".
+Dans notre scénario, c'est cette traduction automatique dont nous allons parler.
+
+\paragraph{}La traduction ne prend pas seulement en compte le fait de traduire une suite de mot d'une langue à une autre. Il faut préserver le sens et être le plus fidèle possible. Pour cela, le traducteur (ou système de traduction) doit connaître le contexte du texte, la grammaire des deux langues, ainsi que leur cultures. En effet, la culture compte pour beaucoup car certains mots dans une langue n'ont pas la même signification dans une autre, il faut alors transformer les mots afin de refléter l'idée du texte original. C'est pourquoi les traduction les plus fiables et fidèles sont faites par des humains spécialisés dans la traduction. 
 
 \subsection{Solutions}
 
+Tout d'abord, il faut savoir que dans la traduction non informatisée il y a trois phases durant la traduction :
+\begin{itemize}
+	\item La compréhension : comprendre le sens du texte d'origine
+	\item La dé-verbalisation : garder le sens du texte sans les mots
+	\item La ré-expression : formulation du sens du texte dans la langue d'arrivée
+\end{itemize}
+
+\paragraph{}Dans la traduction informatique, la compréhension sera appelée \textbf{analyse}, la dé-verbalisation \textbf{transfert} et la ré-expression \textbf{génération}. Ces trois phases sont représentées dans le triangle de Vauquois ci-dessous.
+
+\includegraphics[width=10cm]{Triangle_de_vauquois.png}
+
+\paragraph{}Ce schéma est représentatif des différents chemin possibles afin de traduire un texte source dans une langue cible. Ces différents chemins visibles dans le schéma sont les différentes manières de faire actuellement utilisées. Nous pouvons interpréter cela comme "`Plus l'analyse est longue, plus le transfert est court"'.
+
+\paragraph{}Il existe quatre possibilités :
+
+\begin{itemize}
+	\item \textbf{Le transfert direct} : il n'y a pas presque pas d'analyse, toute la traduction se joue au niveau du transfert. Les méthodes de traductions utilisant ce type de transfert sont la traduction par l'exemple et la traduction statistique. Dans cette possibilité, la traduction n'est qu'un processus de décodage.
+	\item \textbf{Le transfert syntaxique} : ici, le transfert est syntaxique, c'est à dire que l'on va s'appuyer sur les arbres syntaxique des langues afin de construire des phrases de même sens. La méthode de traductions utilisant ce type de transfert est la traduction automatique à base de règles.
+	\item \textbf{Le transfert sémantique} : le transfert est sémantique, c'est à dire que l'on traduit à partir du sens du texte d'origine. Il s'agit de la méthode de traduction que nous utilisons (les humains). Il n'y a que très peu de traducteur automatique se basant sur le transfert sémantique, de part sa complexité à modéliser les sémantiques ainsi que part sa difficulté à la mettre en place.
+	\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l'interlangue sous le nom de "langue pivot". Cette méthode n'a pas eu de succès chez ceux qui l'ont essayé.
+
+\paragraph{}De nos jour, les moteurs de traduction utilisent pour la plupart la traduction par règles ou la traduction statistiques. Mais il existe une approche utilisant ces deux systèmes de traductions qu'utilise les leaders du marché que sont Systran, Google Translate et Bing Translator.
+
+\subsubsection{Traduction par l'exemple}
+
 TODO
 
+\subsubsection{Traduction statistique}
+
+TODO
+
+\subsubsection{Traduction par règles}
+
+TODO
+
+\subsection{Notre choix}
+
+TODO
 
 \section{Synthèse vocale}\label{synthese}
 
