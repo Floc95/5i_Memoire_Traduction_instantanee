@@ -282,9 +282,11 @@ Tout d'abord, il faut savoir que dans la traduction non informatisée il y a troi
 	\item \textbf{Le transfert direct} : il n'y a pas presque pas d'analyse, toute la traduction se joue au niveau du transfert. Les méthodes de traductions utilisant ce type de transfert sont la traduction par l'exemple et la traduction statistique. Dans cette possibilité, la traduction n'est qu'un processus de décodage.
 	\item \textbf{Le transfert syntaxique} : ici, le transfert est syntaxique, c'est à dire que l'on va s'appuyer sur les arbres syntaxique des langues afin de construire des phrases de même sens. La méthode de traductions utilisant ce type de transfert est la traduction automatique à base de règles.
 	\item \textbf{Le transfert sémantique} : le transfert est sémantique, c'est à dire que l'on traduit à partir du sens du texte d'origine. Il s'agit de la méthode de traduction que nous utilisons (les humains). Il n'y a que très peu de traducteur automatique se basant sur le transfert sémantique, de part sa complexité à modéliser les sémantiques ainsi que part sa difficulté à la mettre en place.
-	\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l'interlangue sous le nom de "langue pivot". Cette méthode n'a pas eu de succès chez ceux qui l'ont essayé.
+	\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l’inter-langue sous le nom de "langue pivot". Cette méthode n'a pas eu de succès chez ceux qui l'ont essayé.
+\end{itemize}
 
 \paragraph{}De nos jour, les moteurs de traduction utilisent pour la plupart la traduction par règles ou la traduction statistiques. Mais il existe une approche utilisant ces deux systèmes de traductions qu'utilise les leaders du marché que sont Systran, Google Translate et Bing Translator.
+
 
 \subsubsection{Traduction statistique}
 
@@ -293,7 +295,7 @@ Tout d'abord, il faut savoir que dans la traduction non informatisée il y a troi
 \paragraph{}Les modèles statistiques sont basés sur des corpus parallèles, c'est à dire que le même corpus est traduit dans une (ou plusieurs) autre(s) langue(s). Les alignements entre les textes peuvent être réalisés à différents niveaux : paragraphes, phrases, expressions et mots. Cependant, l'alignement mot-à-mot reste celui qui nous offre le plus d'information.
 Pour observer comment cet alignement est réalisé, veuillez vous référer au schéma \ref{fig:corpus_parallele} en annexe.
 
-\paragraph{}Un dictionnaire bilingue est alors construit à partir de ces bi-phrases et les probalité de correspondances sont calculées. Le  tableau ci-dessous représente ce dictionnaire dans exemple du français vers l'anglais.
+\paragraph{}Un dictionnaire bilingue est alors construit à partir de ces bi-phrases et les probabilité de correspondances sont calculées. Le  tableau ci-dessous représente ce dictionnaire dans exemple du français vers l'anglais.
 
 \begin{figure}
 	\centering
@@ -309,7 +311,27 @@ Dans la réalité, la dernière colonne contient une série de scores du modèle stat
 
 \subsubsection{Traduction par règles}
 
-TODO
+\paragraph{}La traduction à base de règle est un modèle de traduction se basant sur les informations linguistique de la langue source et de la langue cible de la traduction. Ces informations linguistiques sont récupéré à partir de dictionnaire bilingue, de règles de grammaire, de la sémantique, la morphologie et de la syntaxe de chaque langage. C'est à partir de ces données linguistiques qu'un système de traduction à base de règle pourra traduire des textes.
+
+\paragraph{}L'approche principale de ce système est de lier la structure de la phrase donnée avec la structure de la langue demandé, en maintenant le sens de la phrase. 
+
+\paragraph{}Pour réalisé une traduction, ce système à donc besoin de :
+\begin{itemize}
+	\item \textbf{Un dictionnaire} qui va lier chaque mot de la langue source avec les mots de la langue cible
+	\item \textbf{Les règles} représentant les phrases communes de la langue source ainsi que de la langue cible
+	\item \textbf{Des règles} liant les règles des langues entre elles (association des règles équivalentes)
+\end{itemize}
+
+\paragraph{}Une fois toutes ces données rassemblées, voici les étapes de la traduction :
+\begin{itemize}
+	\item \textbf{1.} Identifier chaque mot du texte source (nom commun, adverbe, verbe, article etc.)
+	\item \textbf{2.} Recueillir les informations syntaxiques des verbes (base du verbe, temps, personne etc.)
+	\item \textbf{3.} Analyse grammaticale de la phrase source (structure)
+	\item \textbf{4.} Traduction des mots de la langue source en langue cible (en gardant le sens du mot, c'est à dire que l'on va traduire un adverbe avec un adverbe, un article avec un article etc. afin de garder le sens)
+	\item \textbf{5.} Mise en correspondance des formes syntaxiques et production du résultat 
+\end{itemize}
+
+\paragraph{}La traduction à base de règles à un bon niveau de qualité pour des traductions dans un cadre général (hors domaines spécifiques). Mais elle nécessite un corpus de texte de référence (pour le dictionnaire) assez volumineux et elle demande de fait, une puissance de calcul relativement élevé.
 
 \subsubsection{Traduction par l'exemple}
 
@@ -330,7 +352,9 @@ Cependant, cette traduction nécessite une base de données très fournie pour fonc
 
 \subsection{Notre choix}
 
-TODO
+\paragraph{}Après avoir analyser les différents types de traductions automatiques, nous pouvons maintenant décider de quelle méthode de traduction nous allons nous servir. Dans le cadre de notre scénario, on souhaite ce qu'il y a de mieux, c'est pourquoi nous allons nous orientée vers le choix qu'on fait les leaders de ce marché : utiliser deux de ces règles. Nous allons donc utiliser à la fois la traduction par règle et la traduction statistique afin d'avoir un résultat le plus fiable possible.
+
+\paragraph{}En effet, les deux méthodes se complètent, la traduction automatique par règle est très bonne au niveau de la bonne formation des phrases, des verbes et autres, et la traduction automatique statistique est quand à elle performante pour des domaines de traductions spécifiques (le contexte, en sorte) et sa traduction d'expression ou mot à mot est plutôt performante également. De plus, ces deux méthodes nécessitent un corpus de texte bilingue volumineux, on pourra alors mutualiser ce corpus.
 
 \section{Synthèse vocale}\label{synthese}
 
