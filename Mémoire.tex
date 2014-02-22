@@ -190,7 +190,6 @@ Cette technique est fréquemment utilisé de nos jours. Que ce soit dans les serve
 Les premiers systèmes de RAP numériques datent d'il y'a plus de cinquante ans, ces premières solutions était limité à la reconnaissance de mots isolé dans un vocabulaire très limité (cardinal d'une dizaine de mots). Nous nous intéresserons ici uniquement aux techniques modernes permettant de couvrir une langue complète et de reconnaître de la parole continue, soit des phrases et discours complets ayant un sens.
 
 \paragraph{Parole continue}
-
 Les système de reconnaissance de parole continue reçoivent en entrée un signal (analogique ou numérique) correspondant à un message orale à retranscrire en texte, ce qui pose un certain nombre de difficultés successive. La continuité de texte impose au système de :
 \begin{itemize}
 	\item redécouper le signal en mots, tâche compliqué par le fait qu'à l'oral il n'y a pas de réel séparation (pause) entre les mots, si ce n'est pour ponctuer, et que dans certain cas des liaisons sont faite entre plusieurs mots une syllabe pouvant ainsi se retrouver \textit{à cheval} entre deux mots
@@ -198,17 +197,34 @@ Les système de reconnaissance de parole continue reçoivent en entrée un signal (
 	\item de vérifier que le résultat obtenue est sémantiquement correcte, chaque phrases doit avoir un sens
 \end{itemize}
 
-\paragraph{}Le modèle le plus courant actuellement consiste à séparer les deux types principaux de difficultés, d'une part le signal acoustique est décoder vers une information phonétique puis les informations phonétiques sont traité par des algorithmes de modélisation du langage.
+\paragraph{}Le modèle le plus courant actuellement consiste à séparer les deux types principaux de difficultés, d'une part le signal acoustique est décodé vers une information phonétique puis les informations phonétiques sont traité par des algorithmes de modélisation du langage.
 
 \paragraph{}Tout d'abord le décodage phonétique s'opère en analysant des fenêtrant le signal d'origine et comparant ses composés à la bibliothèque d'unités connue utilisée par le système (mot, syllabe, diphone, phonème, etc.).
 Dans un second temps les informations décodé doivent être traité pour obtenir des phrases syntaxiquement et sémantiquement correcte, pour ce faire les systèmes actuels reposent sur des procédés statistiques étudiant la probabilité d'une suite de mots et ajustant ainsi les séquences trouvé.
 
-\subsubsection{Étude du signal}
+\subsubsection{Étude du signal (décodage acoustico-phonétique)}
 
-Fournier, Markov cachée etc
+L'étude du signal s'opère le plus le plus souvent via une analyse paramétrique de ce dernier et permets ainsi de retrouver l'élément acoustique le plus probable correspondant au signale.
+Lors de l'acquisition des données acoustiques des pertes liées au matériel (plage de fréquence du microphone) sont inévitable ainsi que des perturbations liée à l’environnement (réverbération de la salle, bruit ambiant). Nous n’étudierons pas ici les différentes solutions qui existent permettant d’amoindrir l'impacte des deux facteurs précédemment énoncé et passerons directement à l'étude du signale nettoyé.
+L'étude se fait alors par fenêtrage, le signal de la parole n'évoluant que peu sur des durées de quelques millisecondes (stationnarité locale). Sur chaque fenêtre une analyse spectrale est alors effectuée, par exemple grâce à la décomposition du signal sur la fenêtre considéré via une transformée de fournier puis en analysant le résultat avec un ensemble de filtres passe-bande permettant le représentation de l’échantillon par un sonagramme. Il Suffirait alors d'effectuer une reconnaissance de forme en comparant le résultat à notre bibliothèque et en conservant l'élément le plus probable.
+Malheureusement il n'est pas possible d'effectuer directement une tel opération, la durée de chaque unité à reconnaître n'étant pas stable il faut pouvoir faire coïncider le signal relevé avec les données de notre bibliothèque via des procédés de normalisation temporel.
+Pour ce faire il existe plusieurs modèles notamment les modèles Markoviens Cachées, les modèles neuronimétriques ou encore les algorithme de comparaison dynamique.
+
+La technique la plus couramment utilisé aujourd'hui se fait par modèles de markov caché. Il est alors possible de retrouver l'ensemble des états probablement parcouru à partir des observations faites en isolent le chemin le plus probable.
+%%développer http://r.battault.free.fr/probatoire/probatoire.html
+
+
+
+%%(le plus courrament via une transformée de flournier, mais peu être aussi fait par prédiciton linéaire ou évaluation des coefficients cepstraux)
+
+
+%%Fournier, Markov cachée etc
 
 \subsubsection{Reconstruction sémantique}
-langage n-gramme, arbres, réseau neuronaux/confusion
+%%langage n-gramme, arbres, réseau neuronaux/confusion
+
+Une fois les unités phonétiques de bases isolées il reste alors à identifier les formes lexicales correspondantes. Cette étape est appelé le décodage. Les techniques de décodages reposent sur des graphes on retrouve alors des résolutions se basant sur l'algorithme A*. On génère alors un graphe où les noeuds comportent tous les mots probables composés par les unités phonétique préalablement isolés.
+%%treilli de mots etcs, TODO :(
 
 \subsection{Et pour nous ?}%might want to find a fancier name
 
@@ -216,7 +232,10 @@ Dans le cadre de notre scénario, plusieurs des difficultés peuvent être purement
 
 Pour ce qui est du problème de parole concurrente (deux interlocuteurs se mettent à parler en même temps), celui ci pose deux problèmes : séparer ce que disent les deux intervenants pour permettre d'identifier ce que chacun dit, puis retranscrire le résultat à l'auditoire. Si il est certainement possible de séparer ce que dit chaque intervenant cela demanderait des traitement supplémentaire qui ne sont d'après nous pas justifiable : comment retranscrire ensuite à l'auditoire ce qui est dit ? Le résultat de chaque traduction ne peut pas être rendu en même temps, aucun ne serait alors intelligible et si l'on décale la synthétisation de l'une des traduction quand la passer ? Elle se retrouverait déplacé à plus tard indéfiniment à mesure que d'autres intervenants prendraient la parole. Nous avons donc trouvé préférable d'ignorer ce cas en nous reposant sur la discipline des participants.
 
-
+Quand aux techniques de reconnaissances se posent trois questions : l'unité à utiliser, le modèle de décodage acoustico-phonétique et l'algorithme de reconnaissance lexical/grammatical; ce dernier étant directement liée au choix du modèle de décodage acoustico-phonétique. 
+Dans le cas de la parole continue il a été identifié que l'unité la plus adapté était le phonème : en effet l'ordre de grandeur des phonèmes nécessaire à la modélisation d'un langage est très faible, même lors de l'utilisation de phonème contextualisé (prenant en compte de possibles liaisons) et permet ainsi une relative légereté du dictionnaire comportant les mots reconnaissable. Nous utiliserons donc le phonème.
+Les autres paramètres n’ayant pas d’impact particulière sur le cœur de notre recherche nous sélectionnerons le système le plus utilisé, les Modèles de Markov cachés adjoint à %%TODO
+, ceux là ayant déjà prouvé leurs efficacités.
 
 %%Le signal obtenue par un microphone n'est pas directement exploitable (taille des données, bruit, etc.) il est d'abord nécessaire de passer par une étape de traitement du signal. Il est alors intéressant d'isoler les composantes reconnaissables.
 
