@@ -267,7 +267,12 @@ Tout d'abord, il faut savoir que dans la traduction non informatisée il y a troi
 
 \paragraph{}Dans la traduction informatique, la compréhension sera appelée \textbf{analyse}, la dé-verbalisation \textbf{transfert} et la ré-expression \textbf{génération}. Ces trois phases sont représentées dans le triangle de Vauquois ci-dessous.
 
-\includegraphics[width=10cm]{Triangle_de_vauquois.png}
+\begin{figure}
+	\centering
+		\includegraphics[width=10cm]{Triangle_de_vauquois.png}
+	\caption{Triangle de Vauquois}
+	\label{fig:Triangle_de_vauquois}
+\end{figure}
 
 \paragraph{}Ce schéma est représentatif des différents chemin possibles afin de traduire un texte source dans une langue cible. Ces différents chemins visibles dans le schéma sont les différentes manières de faire actuellement utilisées. Nous pouvons interpréter cela comme "`Plus l'analyse est longue, plus le transfert est court"'.
 
@@ -281,17 +286,47 @@ Tout d'abord, il faut savoir que dans la traduction non informatisée il y a troi
 
 \paragraph{}De nos jour, les moteurs de traduction utilisent pour la plupart la traduction par règles ou la traduction statistiques. Mais il existe une approche utilisant ces deux systèmes de traductions qu'utilise les leaders du marché que sont Systran, Google Translate et Bing Translator.
 
-\subsubsection{Traduction par l'exemple}
-
-TODO
-
 \subsubsection{Traduction statistique}
 
-TODO
+\paragraph{La traduction automatique statistique} est basée sur l'utilisation de « modèles statistiques » auto construits à partir de corpus monolingues et bilingues. La construction des « modèles statistiques » est rapide mais requiert d'avoir à disposition des volumes importants de textes traduits. Généralement, un modèle bilingue nécessite au minimum 2 millions de mots pour la traduction dans un domaine spécifique, mais il en nécessite beaucoup plus pour le domaine général. La traduction automatique statistique requiert donc des configurations matérielles lourdes afin d'utiliser les modèles de traduction tout en fournissant des performances normales.
+
+\paragraph{}Les modèles statistiques sont basés sur des corpus parallèles, c'est à dire que le même corpus est traduit dans une (ou plusieurs) autre(s) langue(s). Les alignements entre les textes peuvent être réalisés à différents niveaux : paragraphes, phrases, expressions et mots. Cependant, l'alignement mot-à-mot reste celui qui nous offre le plus d'information.
+Pour observer comment cet alignement est réalisé, veuillez vous référer au schéma \ref{fig:corpus_parallele} en annexe.
+
+\paragraph{}Un dictionnaire bilingue est alors construit à partir de ces bi-phrases et les probalité de correspondances sont calculées. Le  tableau ci-dessous représente ce dictionnaire dans exemple du français vers l'anglais.
+
+\begin{figure}
+	\centering
+		\includegraphics{dictionnaire_bilingue.PNG}
+	\caption{Dictionnaire bilingue avec probabilités}
+	\label{fig:dictionnaire_bilingue}
+\end{figure}
+
+\paragraph{}Chaque ligne du tableau représente une traduction et chaque élément de cette traduction est séparée par le symbole « ||| ». Dans la première colonne apparaît le mot ou la séquence de mots d'une langue source, dans la seconde colonne apparaît le mot ou la séquence de mots en langue cible. Puis, la dernière colonne représente la probabilité de correspondance de ce mot lors d'une traduction. 
+Dans la réalité, la dernière colonne contient une série de scores du modèle statistique. Mais nous avons choisi de n'afficher que le score du modèle de traduction afin de simplifier la compréhension. Le score du modèle de traduction est utilisé pour évaluer les différentes traductions possibles pour un même mot ou séquence de mot en langue source. Plus le score est proche de 1, plus la traduction a de chance d'être la bonne. Par exemple, la traduction de « la » en « the » a une probabilité de 0.6 (60\%), c'est à dire que dans la majorité des cas, il faudra utiliser cette traduction et dans 40\% des cas, on devra utiliser la traduction en « this ».
+ 
+\paragraph{}Lors d'une traduction, le système de traduction automatique statistique va commencer par segmenter le texte en mots, séquences de mots ou signes de ponctuations. Puis, il assemble un ensemble d'hypothèses de traduction utilisant les traductions que nous avons montrés dans la figure \ref{fig:corpus_parallele}. Comme il existe de nombreuses façons de découper le texte et de traduire les séquences, la création des hypothèses produit une longue liste d'hypothèses de traduction. A chaque hypothèse on associe un score calculé à partir du modèle statistique. L'hypothèse ayant le plus gros score est alors choisi pour être la traduction que l'on va retourner.
 
 \subsubsection{Traduction par règles}
 
 TODO
+
+\subsubsection{Traduction par l'exemple}
+
+La traduction par l'exemple, également appelé traduction par analogie, réside dans le principe de prendre des petites phrases courtes qui sont traduites dans plusieurs langues et d'identifier ces phrases dans le texte à traduire. Cela permet une meilleure préservation du sens des phrases. Le résultat est donc plutôt satisfaisant.
+
+\paragraph{}La traduction par l’exemple s'introduit entre la traduction par règles et la traduction statistique. En effet, beaucoup d’approches de la traduction intègrent des règles et des techniques statistiques.
+Cependant, certaines caractéristiques dissocient la traduction par l'exemple de la traduction par règle et de la traduction statistique. Dans la traduction par l'exemple, on isole le texte par phrase.
+
+Voici les principales étapes de la traduction par l'exemple :
+\begin{itemize}
+	\item \textbf{Décomposition} de la phrase en séquences correspondant le mieux aux exemples en base de données
+	\item \textbf{Traduction} des séquences dans la langue cible par analogie avec les exemples en base de données
+	\item \textbf{Recomposition} des séquences afin de former une phrase dans la langue d'origine
+\end{itemize}
+ 
+\paragraph{}La traduction par l'exemple est particulièrement performante avec les verbes à particules - verbes qui changent de sens selon la particule (adverbe, adposition, nom ou adjectif) comme "`mettre bas"' ou "`passer outre"' en français - qui sont très présent dans les langues germaniques. Ce type de traduction est particulièrement performant avec ces verbes car il s’appuie sur des séquences de phrases, le contexte est donc conservé et la génération d'un verbe à particule est donc beaucoup plus aisé.
+Cependant, cette traduction nécessite une base de données très fournie pour fonctionner correctement. Cette base de données devra être alimenté par des textes de références traduit dans chaque langue. Il s'agit d'un lourd investissement.
 
 \subsection{Notre choix}
 
@@ -354,15 +389,19 @@ TODO
 %\bibliographystyle{alpha} %Style of Bibliography: plain / apalike / amsalpha / ...
 %\bibliography{literature} %You need a file 'literature.bib' for this.
 
-%% The List of Figures
-\clearpage
-\addcontentsline{toc}{chapter}{Liste des Figures}
-\listoffigures
+\chapter{Annexes}\label{annexes}
+
+\begin{figure}[!h]
+	\centering
+		\includegraphics[width=1.00\textwidth]{corpus_parallele.jpg}
+	\caption{Corpus Parallèle}
+	\label{fig:corpus_parallele}
+\end{figure}
 
 %% The List of Tables
-\clearpage
-\addcontentsline{toc}{chapter}{Liste des Tableaux}
-\listoftables
+%%\clearpage
+%%\addcontentsline{toc}{chapter}{Liste des Tableaux}
+%%\listoftables
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
