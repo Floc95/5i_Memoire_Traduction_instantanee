@@ -273,7 +273,7 @@
 					\label{fig:Triangle_de_vauquois}
 				\end{figure}
 
-				\paragraph{}Ce schéma est représentatif des différents chemin possibles afin de traduire un texte source dans une langue cible. Ces différents chemins visibles dans le schéma sont les différentes manières de faire actuellement utilisées. Nous pouvons interpréter cela comme "`Plus l'analyse est longue, plus le transfert est court"'.
+				\paragraph{}Ce schéma est représentatif des différents chemin possibles afin de traduire un texte source dans une langue cible. Ces différents chemins visibles dans le schéma sont les différentes manières de faire actuellement utilisées. Nous pouvons interpréter cela comme "Plus l'analyse est longue, plus le transfert est court".
 
 				\paragraph{}Il existe quatre possibilités :
 
@@ -346,7 +346,7 @@
 						\item \textbf{Recomposition} des séquences afin de former une phrase dans la langue d'origine
 					\end{itemize}
 					 
-					\paragraph{}La traduction par l'exemple est particulièrement performante avec les verbes à particules - verbes qui changent de sens selon la particule (adverbe, adposition, nom ou adjectif) comme "`mettre bas"' ou "`passer outre"' en français - qui sont très présent dans les langues germaniques. Ce type de traduction est particulièrement performant avec ces verbes car il s’appuie sur des séquences de phrases, le contexte est donc conservé et la génération d'un verbe à particule est donc beaucoup plus aisé.
+					\paragraph{}La traduction par l'exemple est particulièrement performante avec les verbes à particules - verbes qui changent de sens selon la particule (adverbe, adposition, nom ou adjectif) comme "mettre bas" ou "passer outre" en français - qui sont très présent dans les langues germaniques. Ce type de traduction est particulièrement performant avec ces verbes car il s’appuie sur des séquences de phrases, le contexte est donc conservé et la génération d'un verbe à particule est donc beaucoup plus aisé.
 					Cependant, cette traduction nécessite une base de données très fournie pour fonctionner correctement. Cette base de données devra être alimenté par des textes de références traduit dans chaque langue. Il s'agit d'un lourd investissement.
 
 			\subsection{Notre choix}
@@ -373,9 +373,9 @@
 					\subsubsection{Traitement automatique du langage naturel}	
 					\paragraph{}L'ensemble des modules permettant la décomposition du texte est désigner comme le module de traitement automatique du langage naturel. Plusieurs traitements consécutif sont alors exécuté sur le texte pour le transcrire sous une forme lisible par le synthétiseur vocale. On retrouve alors les traitements principaux suivant : 
 					
-					\paragraph{La phase de nettoyage} dont le but est d’aplanir le texte en y remplaçant toutes les occurrences d'abréviations, de chiffre et nombre, de caractère spéciaux, unités de mesures ou encore devises par leur équivalent en toutes lettres transformant alors "`num. tel. 01.00.00.00.01 \$2 la minute à partir de 08h30"'  en "`numéro téléphone  zéro un, zéro zéro, zéro zéro, zéro zéro, zéro un deux dollars la minute à partir de huit heure trente"'. Dans les langues concernés, une étape de ré-accentuation peut être à prévoir par exemple dans les cas où les accents ne seraient pas présent de mots en majuscule. Lors de cette étape, il peut aussi être intéressant de repérer et traiter les acronymes comportant des voyelles qui ne sont pas lu comme un mot, et ainsi décomposer l'acronyme "`PIB"' est nécessaire alors que "`OTAN"' ou encore "`PHP"' peuvent être laisser comme tel.
+					\paragraph{La phase de nettoyage} dont le but est d’aplanir le texte en y remplaçant toutes les occurrences d'abréviations, de chiffre et nombre, de caractère spéciaux, unités de mesures ou encore devises par leur équivalent en toutes lettres transformant alors "num. tel. 01.00.00.00.01 \$2 la minute à partir de 08h30"  en "numéro téléphone  zéro un, zéro zéro, zéro zéro, zéro zéro, zéro un deux dollars la minute à partir de huit heure trente". Dans les langues concernés, une étape de ré-accentuation peut être à prévoir par exemple dans les cas où les accents ne seraient pas présent de mots en majuscule. Lors de cette étape, il peut aussi être intéressant de repérer et traiter les acronymes comportant des voyelles qui ne sont pas lu comme un mot, et ainsi décomposer l'acronyme "PIB" est nécessaire alors que "OTAN" ou encore "PHP" peuvent être laisser comme tel.
 					
-				\paragraph{L'étiquetage morphosyntaxique} permettra ensuite de lever les ambiguïtés phonétiques sur la plupart des homographes. Cette étiquetage consiste à annoter chaque mots par son type (nom, verbes, adjectif, etc.) et sa forme (féminin, pluriel, infinitif, etc.). Cette étiquetage permets alors par exemple de différencier la prononciation de "`fier"' dans la phrase "`Il semble fier mais il ne faut pas s'y fier"', où le fait de distinguer "`fier"' de l'adjectif masculin singulier de "`fier"' le verbe à l'infinitif nous permets de discerner sa prononciation. Cette étiquetage pourra être compléter par une analyse contextuel pour palier à certain cas où l'étiquetage ne serait pas suffisant comme dans le cas "`Ses fils jouent avec des fils de fer"' ou "`fils"' f-i-s et "`fils"' f-i-l ne sont tous deux des noms masculins pluriels, mais via une analyse contextuel il possible de les discerner dans le cas présent grâce à "`de fer"' qualifiant les "`fils"' f-i-l.
+				\paragraph{L'étiquetage morphosyntaxique} permettra ensuite de lever les ambiguïtés phonétiques sur la plupart des homographes. Cette étiquetage consiste à annoter chaque mots par son type (nom, verbes, adjectif, etc.) et sa forme (féminin, pluriel, infinitif, etc.). Cette étiquetage permets alors par exemple de différencier la prononciation de "fier" dans la phrase "Il semble fier mais il ne faut pas s'y fier", où le fait de distinguer "fier" de l'adjectif masculin singulier de "fier" le verbe à l'infinitif nous permets de discerner sa prononciation. Cette étiquetage pourra être compléter par une analyse contextuel pour palier à certain cas où l'étiquetage ne serait pas suffisant comme dans le cas "Ses fils jouent avec des fils de fer" ou "fils" f-i-s et "fils" f-i-l ne sont tous deux des noms masculins pluriels, mais via une analyse contextuel il possible de les discerner dans le cas présent grâce à "de fer" qualifiant les "fils" f-i-l.
 				
 				\paragraph{La phonétisation} est la dernière étape constituante de ce premier module. Elle permet alors à partir du texte nettoyé et étiqueté de produire en sortie un ensemble de marqueurs phonétiques qui seront ensuite interprété par le synthétiseur. De nombreux formats existent pour produire un texte phonétisé, certain permettant d'y intégrer la prosodie qui sera nécessaire pour l'appuie des émotions.
 				
@@ -426,8 +426,8 @@
 
 						\paragraph{L'activité physique du corps}
 						\paragraph{}Lorsque l'on ressent une émotion, il arrive que nous effectuons des gestes corporels conscient ou même inconscient. Cela peut venir d'un tique que nous avons face à une certaines émotion (même faible) ou alors cela peut être déclenché par une émotion forte.
-						\paragraph{}Dans le cas où il s’agirait d'un tique, la personne va par exemple se ronger les ongles si elle commence a être stressé ou inquiète. Mais dans le même cas, une autre personne pourrait commencer à "`jouer"' avec ses doigts, les taper sur une table ou autre. En fait, ce genre de réaction face a une émotion dépend de chaque personne et peut varier selon les gens. Cependant, on peut quand même identifier certaines réaction, qui sont plutôt universelle dans le sens de ce qu'elle traduise (se ronger les ongles par exemple, tous le monde ne le fait pas mais lorsque quelqu'un le fait, c'est généralement parce qu'ils sont stressés).
-						\paragraph{}En outre, dans le cas où il s'agirait d'une réaction provoqué par une émotion forte, cela se traduit généralement plus à un changement de comportement physique. Par exemple, en cas de fort énervement, il arrive qu'une personne commence à "`gesticuler"', qu'elle ne tienne plus en place. Ses mouvements deviennent plus rapides et plus fréquents. Ce genre de réactions sont plus généraliser chez les individus que la présence de tique, néanmoins toute personne est différente et il peut arriver qu'une personne ne réagisse pas de la même façon face à une émotion forte.
+						\paragraph{}Dans le cas où il s’agirait d'un tique, la personne va par exemple se ronger les ongles si elle commence a être stressé ou inquiète. Mais dans le même cas, une autre personne pourrait commencer à "jouer" avec ses doigts, les taper sur une table ou autre. En fait, ce genre de réaction face a une émotion dépend de chaque personne et peut varier selon les gens. Cependant, on peut quand même identifier certaines réaction, qui sont plutôt universelle dans le sens de ce qu'elle traduise (se ronger les ongles par exemple, tous le monde ne le fait pas mais lorsque quelqu'un le fait, c'est généralement parce qu'ils sont stressés).
+						\paragraph{}En outre, dans le cas où il s'agirait d'une réaction provoqué par une émotion forte, cela se traduit généralement plus à un changement de comportement physique. Par exemple, en cas de fort énervement, il arrive qu'une personne commence à "gesticuler", qu'elle ne tienne plus en place. Ses mouvements deviennent plus rapides et plus fréquents. Ce genre de réactions sont plus généraliser chez les individus que la présence de tique, néanmoins toute personne est différente et il peut arriver qu'une personne ne réagisse pas de la même façon face à une émotion forte.
 						
 						\paragraph{L'activité physique du visage}
 						\paragraph{}Le visage d'un individu est l'élément physique qui transmet le plus d'émotions. En effet, le visage est la partie du corps qui exprime le plus les sentiments (et donc les émotions) d'un individu. De nombreuses études ont été menés afin d'identifier clairement les réactions faciales des individus face à une émotion. Nous maintenant chaque interprétations possible d'une émotion chez un humain.
@@ -523,6 +523,21 @@
 			\caption{Corpus Parallèle}
 			\label{fig:corpus_parallele}
 		\end{figure}
+
+	\chapter{Références}\label{references}
+	
+		\begin{itemize}
+			\item \textbf{Appariement de phrases courtes pour la traduction automatique par l’exemple} par Julien Gosme (2009) - Utilisation dans la partie "Traduction par l'exemple"
+			\item \textbf{Traduction automatique} par Wikipédia - Utilisation dans la partie "Traduction"
+			\item \textbf{Traduction} par Wikipédia - Utilisation dans la partie "Traduction"
+			\item \textbf{Introduction à la traduction guidée par l’exemple (Traduction par analogie)}  par Michael Carl (2003) - Utilisation dans la partie "Traduction par l'exemple"
+			\item \textbf{Comprendre la Traduction Automatique} par Systran - Utilisation dans la partie "Traduction statistique" et "Traduction par règles"
+			\item \textbf{La traduction automatique statistique, comment ça marche ?} par Li Gong (2013) - Utilisation dans la partie "Traduction statistique"
+			\item \textbf{Rule-based machine translation} par Wikipédia (EN) - Utilisation dans la partie "Traduction par règles"
+			\item \textbf{Émotion} par Wikipédia - Utilisation dans la partie "Émotions"
+			\item \textbf{Computatione Affective: Af?chage, Reconnaissance, et Synthèse par Ordinateur des Émotions} par Marco Paleari (2009) - Utilisation des la partie "Émotions"
+			\item \textbf{Une approche de l'expression orale des émotions : étude d'un corpus réel} par Solange Hollard, Mutsuko Tomokiyo et Denis Tuffelli (2005) - Utilisation dans la partie "Émotions"
+		\end{itemize}
 
 	%% The List of Tables
 	%%\clearpage
