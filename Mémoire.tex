@@ -4,7 +4,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% HEADER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper,oneside,10pt]{report}
+\documentclass[a4paper,oneside,12pt]{report}
 % Alternative Options:
 %	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
 % Duplex: oneside / twoside
@@ -53,6 +53,7 @@
 %\usepackage{a4wide} %%Smaller margins = more text per page.
 %\usepackage{fancyhdr} %%Fancy headings
 %\usepackage{longtable} %%For tables, that exceed one page
+\usepackage{float}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -265,7 +266,7 @@
 
 				\paragraph{}Dans la traduction informatique, la compréhension sera appelée \textbf{analyse}, la dé-verbalisation \textbf{transfert} et la ré-expression \textbf{génération}. Ces trois phases sont représentées dans le triangle de Vauquois ci-dessous.
 
-				\begin{figure}[!h]
+				\begin{figure}[H]
 					\centering
 						\includegraphics[width=10cm]{Triangle_de_vauquois.png}
 					\caption{Triangle de Vauquois}
@@ -295,7 +296,7 @@
 
 					\paragraph{}Un dictionnaire bilingue est alors construit à partir de ces bi-phrases et les probabilité de correspondances sont calculées. Le  tableau ci-dessous représente ce dictionnaire dans exemple du français vers l'anglais.
 
-					\begin{figure}
+					\begin{figure}[H]
 						\centering
 							\includegraphics{dictionnaire_bilingue.PNG}
 						\caption{Dictionnaire bilingue avec probabilités}
@@ -449,7 +450,7 @@
 						\paragraph{}Dans cette énoncé, ils compareront la durée, l'énergie et le pitch du mot numéraire « deux » qui est prononcé deux fois dans l'énoncé, la première de façon neutre et la deuxième de façon insistante.
 						\paragraph{}Voici les mesures effectués sur les deux mots :
 						
-						\begin{figure}
+						\begin{figure}[H]
 							\centering
 								\includegraphics[width=1.00\textwidth]{TableauAnalyseDeux.PNG}
 							\caption{Mesures de durée, pitch et énergie sur un même mot prononcé de façon neutre, et avec émotion}
@@ -462,9 +463,9 @@
 						
 					\subsubsection{Comment allons-nous les identifier ?}
 
-						\paragraph{Travaux sur le sujet} 
-
-						\paragraph{Dans le cadre de notre scénario} %% Quel facteurs on choisi et comment techniquement on va faire
+						\paragraph{Dans le cadre de notre scénario} nous n'avons pas de caméra qui film chaque personne de la réunion. Les expressions corporelles et du visage sont donc inutilisables. En revanche, nous pouvons utiliser les marques sémantiques décrites un peu plus haut ainsi que les données phonologiques que nous pourront avoir grâce au micro dans lequel parleront les membres de la réunion.
+						\paragraph{}Techniquement, nous allons donc récupérer l'enregistrement de la phrase prononcé par une personne puis nous allons analyser les données phonologiques, les comparer à notre base de données et nous allons donner à chaque mot un score de probabilité pour chaque émotion. Ensuite, sur l'ensemble des mots de la phrase, nous déterminerons quelle émotion est la plus probable (en fonction des scores).
+						\paragraph{}Parallèlement, nous 
 
 					\subsubsection{Les limites}
 
@@ -520,7 +521,7 @@
 
 	\chapter{Annexes}\label{annexes}
 
-		\begin{figure}[!h]
+		\begin{figure}[H]
 			\centering
 				\includegraphics[width=1.00\textwidth]{corpus_parallele.jpg}
 			\caption{Corpus Parallèle}
