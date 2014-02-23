@@ -358,8 +358,31 @@
 
 				\subsection{Présentation et but}
 
-				TODO
-
+					\paragraph{}La synthèse vocale a vocation à émuler artificiellement la parole humaine à partir de données, dans notre cas un texte, tout en restituant au maximum une prosodie naturel. De nos jours d'important progrès ont été fait quand à l'intelligibilité des voix de synthèse, le côté synthétique dû au hachage entre chaque syllabe ayant été adoucie.
+					
+				\subsection{Principes générale} 
+				
+				\paragraph{}Nous nous intéressons donc ici plus particulièrement à la synthèse vocale à partir de texte (Text-To-Speech) qui permet donc la restitution de voix à partir d'un texte correcte d'un point de vue lexicale. Aujourd'hui ces systèmes sont composés de deux modules principaux permettant de :
+				
+				\begin{itemize}
+						\item \textbf{décomposer} le texte en un ensemble d'unités basiques qui seront ensuite interpréter par le synthétiseur
+						\item \textbf{synthétiser} la voix à partir des informations produite par le premier module.
+					\end{itemize}
+					
+					\subsubsection{Traitement automatique du langage naturel}	
+					\paragraph{}L'ensemble des modules permettant la décomposition du texte est désigner comme le module de traitement automatique du langage naturel. Plusieurs traitements consécutif sont alors exécuté sur le texte pour le transcrire sous une forme lisible par le synthétiseur vocale. On retrouve alors les traitements principaux suivant : 
+					
+					\paragraph{La phase de nettoyage} dont le but est d’aplanir le texte en y remplaçant toutes les occurrences d'abréviations, de chiffre et nombre, de caractère spéciaux, unités de mesures ou encore devises par leur équivalent en toutes lettres transformant alors "`num. tel. 01.00.00.00.01 \$2 la minute à partir de 08h30"'  en "`numéro téléphone  zéro un, zéro zéro, zéro zéro, zéro zéro, zéro un deux dollars la minute à partir de huit heure trente"'. Dans les langues concernés, une étape de ré-accentuation peut être à prévoir par exemple dans les cas où les accents ne seraient pas présent de mots en majuscule. Lors de cette étape, il peut aussi être intéressant de repérer et traiter les acronymes comportant des voyelles qui ne sont pas lu comme un mot, et ainsi décomposer l'acronyme "`PIB"' est nécessaire alors que "`OTAN"' ou encore "`PHP"' peuvent être laisser comme tel.
+					
+				\paragraph{L'étiquetage morphosyntaxique} permettra ensuite de lever les ambiguïtés phonétiques sur la plupart des homographes. Cette étiquetage consiste à annoter chaque mots par son type (nom, verbes, adjectif, etc.) et sa forme (féminin, pluriel, infinitif, etc.). Cette étiquetage permets alors par exemple de différencier la prononciation de "`fier"' dans la phrase "`Il semble fier mais il ne faut pas s'y fier"', où le fait de distinguer "`fier"' de l'adjectif masculin singulier de "`fier"' le verbe à l'infinitif nous permets de discerner sa prononciation. Cette étiquetage pourra être compléter par une analyse contextuel pour palier à certain cas où l'étiquetage ne serait pas suffisant comme dans le cas "`Ses fils jouent avec des fils de fer"' ou "`fils"' f-i-s et "`fils"' f-i-l ne sont tous deux des noms masculins pluriels, mais via une analyse contextuel il possible de les discerner dans le cas présent grâce à "`de fer"' qualifiant les "`fils"' f-i-l.
+				
+				\paragraph{La phonétisation} est la dernière étape constituante de ce premier module. Elle permet alors à partir du texte nettoyé et étiqueté de produire en sortie un ensemble de marqueurs phonétiques qui seront ensuite interprété par le synthétiseur. De nombreux formats existent pour produire un texte phonétisé, certain permettant d'y intégrer la prosodie qui sera nécessaire pour l'appuie des émotions.
+				
+				\subsubsection{Synthétiseur vocale}
+				
+				\paragraph{}Vient alors la retranscription oral des informations phonétiques (éventuellement accompagné d'informations prosodiques) obtenue via le module de traitement automatique du langage naturel. Cette synthèse se fait en deux étapes
+				
+				
 				\subsection{Solutions}
 
 				TODO
