@@ -380,12 +380,27 @@
 				
 				\subsubsection{Synthétiseur vocale}
 				
-				\paragraph{}Vient alors la retranscription oral des informations phonétiques (éventuellement accompagné d'informations prosodiques) obtenue via le module de traitement automatique du langage naturel. Cette synthèse se fait en deux étapes
+				\paragraph{}Vient alors la retranscription oral des informations phonétiques (éventuellement accompagné d'informations prosodiques) obtenue via le module de traitement automatique du langage naturel. Dans un premier temps pour effectuer cette synthétisation les chercheurs se sont orienté vers des stratégies dites par règles, qui nécessite très peux d'espace en mémoire (les sons ne sont pas enregistré, ils sont générés via le traitement d'un signale). Cette approche donne malheureusement des résultats très éloigné de la voix humaine et nuis ainsi à la compréhension. Avec l'augmentation de la taille des espaces mémoires dans les systèmes informatiques une nouvelle approche a pu voir le jour : ici, plutôt que de générer entièrement le son, il est question de concaténer un ensemble de sons près-enregistré pour reproduire la parole. Cette deuxième approche, selon son implémentation, permet alors des résultats bien plus proche de la voix humaine les sons émis n'étant que des enregistrements réels.
+				
+				\paragraph{La synthèse par règles}, aussi appelé synthèse par formants, s’appuie alors sur la modélisation du spectre sonore de la parole en reproduisant généralement les trois premiers formants d'un phonème. Si cette technique a l'avantage d'être très légère, autant en mémoire qu'en traitement, elle ne permet que des résultats très éloignés de la voix humaine et dont la prosodie, et donc à fortiori la reproduction des émotions, n'est ni vraisemblable ni agréable. Ce processus n'est donc pas du tout adapté à nos besoins.
+				
+				\paragraph{La synthèse par concaténation} consiste en l'assemblage de plusieurs unités (pouvant varier) sonores près-enregistré pour reformer le texte à énoncer. Cette technique se basant alors sur des enregistrement de voix naturel elle permet des résultats bien plus naturels. Se pose alors deux questions : 
+				\begin{itemize}
+						\item \textbf{L'unité} : en effet plus l'unité est longue (mot, phrases) moins de transition synthétiques sont à effectuer et plus le résultat final sera naturel. Malheureusement, cela implique de stocker énormément de données et donc, de devoir effectuer des traitement lourd lors de leur récupération. A contrario, un système se basant sur des unités courtes (phonéme et diphones) plus le traitement sera simple et souple (possibilité d'intégrer plus facilement de la prosodie) mais plus il sera difficile de masquer les transitions entre celles-ci.
+						\item \textbf{Le système de concaténation} : les systèmes les plus simples se contentant alors d'assembler bout à bout les unités, pour un rendu très peu naturel et haché. Pour répondre à ce problème il possible de simplement augmenter le nombre d'extraits correspondant à chaque unités ce qui permet ensuite de concaténer celles dont la transition est la plus naturel et permet aussi d'émuler simplement les accentuation et marques prosodiques.
+					\end{itemize}
 				
 				
-				\subsection{Solutions}
+				
+				\subsection{Dans notre cas}
 
-				TODO
+					\paragraph{}Dans notre système l'emphase au niveau de la synthètisation de la voix est à mettre du côté du naturel : nous visons en effet à rendre notre système capable de reproduire une émotion, il nous est donc crucial d'avoir un système capable de moduler le rythme, l'intonation et l'intensité de la voix de synthèse. Si notre système pourrait se rapprocher d'un système embarqué il est aussi vrai que les capacités de stockages récentes permette pour un prix faible de stocker plusieurs gigaoctets de données dans un volume très faible et nous ne considérerons donc pas les problèmes liée aux demandes de grand espaces de stockages. En revanche les capacité du système à produire une vocalisation vraisemblable est très importante, une voix à l'aspect trop robotique risquant d'affaiblir la restitution des émotions.
+					
+					\paragraph{}Si la synthèse par diphones permet des résultats intelligible et une flexibilité correcte, ceux-ci reste bien loin d'être naturel. Il en va de même pour toutes les solutions traitant un seul type d'unité. Nous nous orientons donc vers les systèmes à unité de longueur variable où chaque unité est représenté plusieurs fois pour permettre des transitions fluides entre chaque enregistrement.
+					\paragraph{}Un tel système de synthèse vocale par concaténation se nomme alors synthèse par sélection d'unités. Ici la problématique tourne alors autour de la sélection des unités les plus pertinentes à piocher dans une base de donnée très conséquente (plusieurs dizaines d'heures d'enregistrement), il est donc question de sélectionner une unité correspondant déjà à nos besoin pour éviter d'avoir à la modifier ce qui résulte en un ensemble plus naturel. Pour la sélection des unité il est alors nécessaire d'essayer de minimiser deux paramètres : la différence entre l'unité à reproduire et l'unité à trouver ainsi que les différences entre la fin de l'unité précédente avec celle à trouver. Pour permettre un tel choix il est alors primordiale de disposer pour chaque unité de variantes basé au minimum sur leurs durée et fréquences fondamentale (caractéristique acoustiques) ainsi que sur le ton (caractéristique symbolique, nécessaire aux émotions).
+					\paragraph{}Ce type de traitement, si il nécessite une mise en place lourde reste le plus adapté à nos besoin en proposant la plus large variété de modulation de la prosodie sur le résultat tout en limitant les intervention sur le signal.
+					
+
 
 
 			\section{Émotions}\label{emotions}
