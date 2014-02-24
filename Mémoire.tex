@@ -23,6 +23,7 @@
 \usepackage{graphicx} %%For loading graphic files
 %\usepackage{subfig} %%Subfigures inside a figure
 %\usepackage{pst-all} %%PSTricks - not useable with pdfLaTeX
+% Alternative Options:
 
 %% Please note:
 %% Images can be included using \includegraphics{Dateiname}
@@ -486,22 +487,35 @@
 						\paragraph{}Parallèlement, nous analyserons les marques sémantiques de la phrase à traduire. Si les marques sémantiques peuvent desceller une émotion dans la phrase, on calculera la probabilité de l'exactitude que ce soit cette émotion là. Nous aurons déjà une probabilité pour l'émotion déterminée avec les données phonologiques, nous choisirons alors la probabilité la plus forte entre les deux système. Les probabilités pourront ne pas être équivalente, il pourrait arriver qu'une probabilité de 80\% en données phonologiques soit supérieure en chance de réussite à une probabilité de 90\% en marques sémantiques. C'est pourquoi, il faudra entrer notre système avec des humains qui vérifierons les résultats fournis par le système et qui ajusterons le calcul de la détermination de l'émotion choisi. Cette phase d’entraînement du système est très importante afin que le système soit juste et fiable.
 
 				\subsection{Retranscription des émotions}
-
-					\subsubsection{Travaux sur le sujet}
-
-						%% On explique qui a travailler dessus, pourquoi, comment
-
-					\subsubsection{Influence sur la traduction}
-
-						%% Choix des mots et stockage des émotions de base mot à mot
-
+				
+					\paragraph{}L'étape finale de notre système est la retranscription orale de la traduction de la parole d'un locuteur. Dans le but de rendre cette traduction plus agréable et fidèle nous nous intéressons donc à la retranscription non seulement des dires mais aussi des émotions voisé par ce locuteur.
+					\paragraph{}La reproduction des émotions dans la synthèse vocale est un élément de recherche qui n'est pas encore totalement résolu, pourtant les premières solutions datent du début des années 1990. C'est un sujet très complexe, en effet la reconnaissance d'une émotion uniquement par la voix n'est pas aisé et un humain pourra facilement confondre différente émotions même lors ce qu'elles sont produite par un acteur humain. Il reste d'ailleurs encore à prouver qu'une machine puisse parfaitement simuler n'importe quelle émotion de façon crédible et les recherches actuels tendent à se concentrer sur un petit panel d'émotions facilement identifiable tel que la joie et l'énervement. 
+					\paragraph{}Un autre des freins aux recherches sur le sujet se trouve sûrement être le cadre très réduits des applications nécessitant réellement la reproduction des émotions dans une voix synthétique, ainsi la plus part des cas d'utilisations de voix de synthèse ne nécessite qu'un ton neutre comme pour les plates-formes d'aide téléphonique automatisé ou la lecture de contenu pour personnes mal voyantes. Il existerais néanmoins des domaines d'application tel que les voix de synthèses utilisé dans les prothèses à destination des personnes aux possibilités de communication orale réduite ou encore dans le cadre de notre scénario. 
+					\paragraph{}Néanmoins, maintenant que les progrès en terme de synthèse vocale permettent la restitution d'une voix neutre crédible les recherches s'orientent plus vers la reproduction des émotions, dernier pas vers des voix de synthèse réellement vraisemblables.
+					
+%%					\subsubsection{Travaux sur le sujet}
+%% On explique qui a travailler dessus, pourquoi, comment
+						
 					\subsubsection{Retranscription par synthèse vocale}
+					
+						\paragraph{Systèmes à sélection d'unité : } ce système qui a déjà été présenté dans la section "`Synthétiseur vocale"' est le système le plus simple permettant de générer une voix capable d'émotion et aussi l'un des plus robuste et crédible : se basant entièrement sur le principe de modifier au minimum voir même de garder intacte les enregistrement du corpus la prosodie et la qualité de voix sont parfaites. Le plus gros désavantage de ce système se trouvant dans le travail d'enregistrement et d'annotation du corpus qu'il faut produire en amont. Il est effectivement nécessaire d'enregistrer une quantité considérable de son pour parvenir à la constitution d'une base de donnée exhaustive et ce avec un seul locuteur pour toutes les émotions, aussi pour l'introduction d'une nouvelle émotion dans le système il sera nécessaire d'enregistrer à nouveau tout le contenue de la base avec cette nouvelle émotion. Il est possible de palier le problème en proposant en plus des annotations symboliques manuels une analyse des signes acoustique d'une émotion et les utiliser lors de la sélection, piochant ainsi dans les résultat proche en cas de trou.
+						\paragrap{}Si les systèmes à sélection d'unité son aujourd'hui les plus performant pour reproduire un éventail près-délimité d'émotion, et ce avec un résultat naturel ils sont aussi incapable de nuance : il faudrait enregistrer chaque nuance au préalable, ce qui n'est pas une solution praticable. Plus récemment un nouveau système, bien que moins efficace pour ma restitution d'une émotion appuyé, capable de nuance est demandant un travail d'enregistrement moindre a été développé.
+						
+						
+						\paragraph{Système basé sur les modèles de Markov caché : } ici la synthèse se fait via la concaténation d'une série de modèles de Markov caché dépendant du contexte qui détermineront la durée et les fondamentales du spectre puis la forme de l'onde est ensuite généré via un filtre dit de Mel Log Spectrum Approximation.
+							Ce système présente l'avantage d'être capable d'émuler plus finement des émotions en jouant sur des nuances. Cette approche présente l'avantage de nécessiter une base de donnée bien plus réduite.
+							%%ici la première étape consistera à "`entraîner"' le système en lui fournissant une base base d'enregistrement dont sera extraite les spectres et les dynamiques des signaux et permettra de constituer les probabilités contextualisé de spectre, de niveau et de durée d'une unité ainsi que les poses entre elles.
+						
+						
+						\paragraph{}Des recherches sur l'efficacité de ces deux méthodes ont été effectué. Aucune des deux techniques ne se sont réellement démarqué, en effet si les systèmes basé sur des modèles de Markov caché se sont montré plus efficace sur la prosodie et donc sur les émotions se basant principalement sur sa modification. En revanche, ils sont plus faible pour la reproduction d'émotions reposant sur des variations du spectre sonore. Il a aussi été noté que les systèmes à sélection d'unité permettaient une accentuation plus forte de l'émotion la rendant plus facilement reconnaissable. C'est d'ailleurs pour ce marquage plus fort de l'émotion que c'est cette dernière solution qui fût retenue.
+						
+						%%Ensuite, lors de l'étape de synthétisation un texte annoté sera fourni au modèle : la concaténations des automates de Markov se fait selon le texte annoté, ensuite la durée de chaques états est déterminé par la fonction de densité de probabilité de durée
 
-						%% Techniquement, comment on fait pour mettre de l'émotion dans une synthèse vocale
 
 					\subsubsection{Limites du système}
+					
+					\paragraph{}Quelque soit le système employé les différents testes ont montré que les systèmes de synthèse vocales ne permettent pas à un écouteur de discerner plusieurs émotions aux signes vocaux proches (joie/surprise), de plus certaine émotion tel que le dégoût on été très mal reconnues par les écouteurs humains. Ces deux systèmes sont donc encore sujet à améliorations.
 
-						%% S'il y en a
 
 	%% <== Fin de la résolution du système
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
