@@ -118,12 +118,16 @@
 	
 	\section*{Résumé}
 	
-		\paragraph{}
+		\paragraph{}Nous proposons ici une étude sur la traduction instantané voix vers voix dans le cadre d'une réunion. L'objectif principale sera de proposer une solution viable dans l’environnement d'une sale de réunion et à l'aide des technologies disponible. Nous aborderons aussi plus en détail la gestion des émotions dans le processus : nous pensons en effet que leur interprétation et restitution est un élément clef dans l'élaboration d'un système voix vers voix pour permettre une plus fine compréhension du locuteur dans le court laps de temps qui est imposé par la dynamique d'une conversation.
+		\paragraph{}Nous traiterons donc dans un premier temps de l'ensemble des modules nécessaires à la traduction voix vers voix avant de nous attarder sur la prise en compte des émotions et les limites actuels.
+		
 		%% Le résumé est un texte qui donne un premier aperçu du contenu du mémoire : le thème, la problématique, la structure et la synthèse des apports personnels. Par rapport à l’introduction du mémoire, il est plus centré sur les apports et conclusions apportés. Il doit être d’abord rédigé en français sur une taille d’une demi-page à une page, puis il doit être traduit en anglais. Le résumé français est à intituler « Résumé », et celui en anglais « Abstract ». L’ensemble doit faire une à deux pages. 
 	
 	\section*{Abstract}
 		
-		\paragraph{}
+		\paragraph{}In this work we aim at exploring speech to speech translation in real time in the closed environment of a meeting room. The main goal is to propose a viable solution fitting a meeting room's conditions with today's technologies. Next we will adress how emotions can be handled by the system and how processing emotions can give an edge when trying to understanding what is being said in such a fast paced situation as a conversation.
+		
+		\paragraph{}To that end we will adress the basic modules needed for a speech to speech translation in real time, then we will study how emotions can be incorporated in the system and what are todays limitations in their handling.
 		
 	\clearpage
 	
@@ -184,6 +188,10 @@
 			Il temps de parler d'une composante qui est transverse à plusieurs autres, citées plus haut. Il s'agit de l'émotion, nous souhaitons que la traduction permette à celui qui écoute de ressentir l'émotion transmise par la personne qui parle. Pour se faire, il vas falloir analyser la voix (Speech To Text), en analyser les émotions puis la retranscrire dans le choix de certains mots peut-être, durant la traduction. Puis il faudra la retranscrire via la synthèse vocale de la manière la plus fidèle possible. 
 
 			La composantes de l'émotion est très intéressante car encore absente des solutions temps réel actuel, sa détection et synthétisation en temps réel est un problème toujours non résolu alors que son apport en terme de dynamisme comme d'aide à la compréhension -qui sont deux facteurs très important pour un système temps réel- sont très importants. C'est pourquoi nous nous pencherons plus particulièrement sur ce facteur et détaillerons comment la détecter, comment la comprendre et comment la retransmettre dans les limites imposés de notre scénario.
+			
+			
+			\paragraph{}
+			\paragraph{}Dans un premier temps nous aborderons les solutions existantes permettant de répondre à chacune des étapes de notre problématique avant de faire un point plus détailler sur la reconnaissance et la retranscription des émotions. Pour finir nous évoquerons les limitations inhérente à notre solution.
 
 	%% <== Fin de l'introduction
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -217,7 +225,7 @@
 
 				\paragraph{}Le modèle le plus courant actuellement consiste à séparer les deux types principaux de difficultés, d'une part le signal acoustique est décodé vers une information phonétique puis les informations phonétiques sont traité par des algorithmes de modélisation du langage.
 
-				\paragraph{}Tout d'abord le décodage phonétique s'opère en analysant des fenêtrant le signal d'origine et comparant ses composés à la bibliothèque d'unités connue utilisée par le système (mot, syllabe, diphone, phonème, etc.).
+				\paragraph{}Tout d'abord le décodage phonétique s'opère en analysant par fenêtre le signal d'origine puis en comparant ses composés à la bibliothèque d'unités connue utilisée par le système (mot, syllabe, diphone, phonème, etc.).
 				Dans un second temps les informations décodé doivent être traité pour obtenir des phrases syntaxiquement et sémantiquement correcte, pour ce faire les systèmes actuels reposent sur des procédés statistiques étudiant la probabilité d'une suite de mots et ajustant ainsi les séquences trouvé.
 
 				\subsubsection{Étude du signal (décodage acoustico-phonétique)}
@@ -228,20 +236,15 @@
 					Malheureusement il n'est pas possible d'effectuer directement une tel opération, la durée de chaque unité à reconnaître n'étant pas stable il faut pouvoir faire coïncider le signal relevé avec les données de notre bibliothèque via des procédés de normalisation temporel.
 					Pour ce faire il existe plusieurs modèles notamment les modèles Markoviens Cachées, les modèles neuronimétriques ou encore les algorithme de comparaison dynamique.
 
-					La technique la plus couramment utilisé aujourd'hui se fait par modèles de markov caché. Il est alors possible de retrouver l'ensemble des états probablement parcouru à partir des observations faites en isolent le chemin le plus probable.
+					\paragraph{}La technique la plus couramment utilisé aujourd'hui se fait par modèles de Markov caché. Il est alors possible de retrouver l'ensemble des états probablement parcouru à partir des observations faites en isolent le chemin le plus probable.
 					%%développer http://r.battault.free.fr/probatoire/probatoire.html
-
-
-
-					%%(le plus courrament via une transformée de flournier, mais peu être aussi fait par prédiciton linéaire ou évaluation des coefficients cepstraux)
-
-
-					%%Fournier, Markov cachée etc
+		
+							
 
 				\subsubsection{Reconstruction sémantique}
 					%%langage n-gramme, arbres, réseau neuronaux/confusion
 
-					Une fois les unités phonétiques de bases isolées il reste alors à identifier les formes lexicales correspondantes. Cette étape est appelé le décodage. Les techniques de décodages reposent sur des graphes on retrouve alors des résolutions se basant sur l'algorithme A*. On génère alors un graphe où les noeuds comportent tous les mots probables composés par les unités phonétique préalablement isolés.
+					Une fois les unités phonétiques de bases isolées il reste alors à identifier les formes lexicales correspondantes. Cette étape est appelé le décodage. Les techniques de décodages reposent sur des graphes on retrouve alors des résolutions se basant sur l'algorithme A*. On génère alors un graphe où les nœuds comportent tous les mots probables composés par les unités phonétique préalablement isolés.
 					%%treilli de mots etcs, TODO :(
 
 			\subsection{Et pour nous ?}%might want to find a fancier name
@@ -251,7 +254,7 @@
 				Pour ce qui est du problème de parole concurrente (deux interlocuteurs se mettent à parler en même temps), celui ci pose deux problèmes : séparer ce que disent les deux intervenants pour permettre d'identifier ce que chacun dit, puis retranscrire le résultat à l'auditoire. Si il est certainement possible de séparer ce que dit chaque intervenant cela demanderait des traitement supplémentaire qui ne sont d'après nous pas justifiable : comment retranscrire ensuite à l'auditoire ce qui est dit ? Le résultat de chaque traduction ne peut pas être rendu en même temps, aucun ne serait alors intelligible et si l'on décale la synthétisation de l'une des traduction quand la passer ? Elle se retrouverait déplacé à plus tard indéfiniment à mesure que d'autres intervenants prendraient la parole. Nous avons donc trouvé préférable d'ignorer ce cas en nous reposant sur la discipline des participants.
 
 				Quand aux techniques de reconnaissances se posent trois questions : l'unité à utiliser, le modèle de décodage acoustico-phonétique et l'algorithme de reconnaissance lexical/grammatical; ce dernier étant directement liée au choix du modèle de décodage acoustico-phonétique. 
-				Dans le cas de la parole continue il a été identifié que l'unité la plus adapté était le phonème : en effet l'ordre de grandeur des phonèmes nécessaire à la modélisation d'un langage est très faible, même lors de l'utilisation de phonème contextualisé (prenant en compte de possibles liaisons) et permet ainsi une relative légereté du dictionnaire comportant les mots reconnaissable. Nous utiliserons donc le phonème.
+				Dans le cas de la parole continue il a été identifié que l'unité la plus adapté était le phonème : en effet l'ordre de grandeur des phonèmes nécessaire à la modélisation d'un langage est très faible, même lors de l'utilisation de phonème contextualisé (prenant en compte de possibles liaisons) et permet ainsi une relative légèreté du dictionnaire comportant les mots reconnaissable. Nous utiliserons donc le phonème.
 				Les autres paramètres n’ayant pas d’impact particulière sur le cœur de notre recherche nous sélectionnerons le système le plus utilisé, les Modèles de Markov cachés adjoint à %%TODO
 				, ceux là ayant déjà prouvé leurs efficacités.
 
@@ -498,13 +501,13 @@
 						
 					\subsubsection{Retranscription par synthèse vocale}
 					
-						\paragraph{Systèmes à sélection d'unité : } ce système qui a déjà été présenté dans la section "`Synthétiseur vocale"' est le système le plus simple permettant de générer une voix capable d'émotion et aussi l'un des plus robuste et crédible : se basant entièrement sur le principe de modifier au minimum voir même de garder intacte les enregistrement du corpus la prosodie et la qualité de voix sont parfaites. Le plus gros désavantage de ce système se trouvant dans le travail d'enregistrement et d'annotation du corpus qu'il faut produire en amont. Il est effectivement nécessaire d'enregistrer une quantité considérable de son pour parvenir à la constitution d'une base de donnée exhaustive et ce avec un seul locuteur pour toutes les émotions, aussi pour l'introduction d'une nouvelle émotion dans le système il sera nécessaire d'enregistrer à nouveau tout le contenue de la base avec cette nouvelle émotion. Il est possible de palier le problème en proposant en plus des annotations symboliques manuels une analyse des signes acoustique d'une émotion et les utiliser lors de la sélection, piochant ainsi dans les résultat proche en cas de trou.
+						\paragraph{Systèmes à sélection d'unité : } ce système qui a déjà été présenté dans la section "Synthétiseur vocale" est le système le plus simple permettant de générer une voix capable d'émotion et aussi l'un des plus robuste et crédible : se basant entièrement sur le principe de modifier au minimum voir même de garder intacte les enregistrement du corpus la prosodie et la qualité de voix sont parfaites. Le plus gros désavantage de ce système se trouvant dans le travail d'enregistrement et d'annotation du corpus qu'il faut produire en amont. Il est effectivement nécessaire d'enregistrer une quantité considérable de son pour parvenir à la constitution d'une base de donnée exhaustive et ce avec un seul locuteur pour toutes les émotions, aussi pour l'introduction d'une nouvelle émotion dans le système il sera nécessaire d'enregistrer à nouveau tout le contenue de la base avec cette nouvelle émotion. Il est possible de palier le problème en proposant en plus des annotations symboliques manuels une analyse des signes acoustique d'une émotion et les utiliser lors de la sélection, piochant ainsi dans les résultat proche en cas de trou.
 						\paragrap{}Si les systèmes à sélection d'unité son aujourd'hui les plus performant pour reproduire un éventail près-délimité d'émotion, et ce avec un résultat naturel ils sont aussi incapable de nuance : il faudrait enregistrer chaque nuance au préalable, ce qui n'est pas une solution praticable. Plus récemment un nouveau système, bien que moins efficace pour ma restitution d'une émotion appuyé, capable de nuance est demandant un travail d'enregistrement moindre a été développé.
 						
 						
 						\paragraph{Système basé sur les modèles de Markov caché : } ici la synthèse se fait via la concaténation d'une série de modèles de Markov caché dépendant du contexte qui détermineront la durée et les fondamentales du spectre puis la forme de l'onde est ensuite généré via un filtre dit de Mel Log Spectrum Approximation.
 							Ce système présente l'avantage d'être capable d'émuler plus finement des émotions en jouant sur des nuances. Cette approche présente l'avantage de nécessiter une base de donnée bien plus réduite.
-							%%ici la première étape consistera à "`entraîner"' le système en lui fournissant une base base d'enregistrement dont sera extraite les spectres et les dynamiques des signaux et permettra de constituer les probabilités contextualisé de spectre, de niveau et de durée d'une unité ainsi que les poses entre elles.
+							%%ici la première étape consistera à "entraîner" le système en lui fournissant une base base d'enregistrement dont sera extraite les spectres et les dynamiques des signaux et permettra de constituer les probabilités contextualisé de spectre, de niveau et de durée d'une unité ainsi que les poses entre elles.
 						
 						
 						\paragraph{}Des recherches sur l'efficacité de ces deux méthodes ont été effectué. Aucune des deux techniques ne se sont réellement démarqué, en effet si les systèmes basé sur des modèles de Markov caché se sont montré plus efficace sur la prosodie et donc sur les émotions se basant principalement sur sa modification. En revanche, ils sont plus faible pour la reproduction d'émotions reposant sur des variations du spectre sonore. Il a aussi été noté que les systèmes à sélection d'unité permettaient une accentuation plus forte de l'émotion la rendant plus facilement reconnaissable. C'est d'ailleurs pour ce marquage plus fort de l'émotion que c'est cette dernière solution qui fût retenue.
@@ -525,11 +528,20 @@
 
 	\chapter{Aller plus loin}\label{system}
 
-		\paragraph{Au niveau de la détection des émotions}
+		\subsection{Au niveau de la détection des émotions}
 		\paragraph{}Il serait intéressant de rendre le système encore plus fiable et plus compétent. Pour ce faire on pourrais intégrer un système de caméras au centre de la table de réunion qui filmerai les visages des participants afin d'en déterminer les émotions grâce à une banque de faciès riche. L'analyse de visage et d'émotions sur les visages étant un domaine complexe et attrayant, il serait intéressant de l'étudier plus en détails et l'utiliser dans notre scénario.
 		\paragraph{}Si l'on souhaite pousser la détection des émotions à un plus haut niveau, on peut intégrer dans notre scénario un ensemble de capteurs qui mesurerais l'activité cardiaque de chaque personne car en fonction des émotions de base, le rythme cardiaque d'un individu évolue. Cette approche serait très pertinente et permettrai une amélioration des résultats significatives. Mais cette approche n'est pas totalement surréaliste car il existe aujourd'hui des capteurs cardiaques relativement précis et discret (bracelet au poignet). Cela ne provoquerai ni gêne, ni encombrement pour les utilisateurs.
 		
 		%% Quel est le futur de la reconaissance et la retranscription des émotions ? Quels progrets peuvent être apportés ?
+		
+		\subsection{Émotions et traduction}
+		
+		\paragraph{}Un deuxième axe d'amélioration se situe au niveau de la traduction, et plus particulièrement de la prise en compte des données émotionnelle dans celle-ci. Il serait ainsi intéressant de se pencher sur la sélection du vocabulaire (niveau, nuance) à employer lors de la traduction en incorporant dans les paramètres de cette dernière l'émotion détecté lors de la prononciation de la phrase. Cela permettrait d'appuyer sur l'état d'esprit du locuteur de façon naturel via l'intégration d'un lexique contextualisé.
+		
+		\subsection{Synthèse de l'émotion}
+		
+		\paragraph{}Nous l'avons vu, si les techniques actuels de synthèse vocale sont maintenant capable de reproduire une voix presque naturel lors de l'émulation d'une voix neutre il en est tout autrement lors ce que l'on tente d'incorporer des émotions dans le signal. Si la technique actuel ne permet pas encore aux modèles de Markov caché de rivaliser avec les systèmes à sélection d'unité les plus perfectionné ils sont bien l'avenir de la synthèse vocale. En effet, ces dernier on l'avantage de pouvoir donner des résultat correcte à partir de corpus modeste et sont finalement plus performant lors ce qu'il s'agit produire une voix neutre notamment grâce à leur capacité à suivre une prosodie plus naturel. De plus, le plus gros point faible des système à modèle de Markov caché réside dans la qualité des voix généré qui sont dégradé, néanmoins de nouvelles solutions alternative à celle exposé ici sont actuellement en développement, certaine tentant de reproduire le système de modulation de la voix chez l'humain.
+		\paragraph{}Nous sommes tout de même encore loin de reproduire le langage naturel via un synthétiseur vocale, mais les avancés qui on été effectué sur les voix neutres permettant aujourd'hui de produire des voix satisfaisante à l'écoute, l'étape suivante tend invariablement à l'amélioration de la simulation des émotions.
 
 
 	%% <== Fin de Aller plus loin
@@ -571,7 +583,19 @@
 			\item \textbf{Rule-based machine translation} par Wikipédia (EN) - Utilisation dans la partie "Traduction par règles"
 			\item \textbf{Émotion} par Wikipédia - Utilisation dans la partie "Émotions"
 			\item \textbf{Computatione Affective: Affichage, Reconnaissance, et Synthèse par Ordinateur des Émotions} par Marco Paleari (2009) - Utilisation des la partie "Émotions"
-			\item \textbf{Une approche de l'expression orale des émotions : étude d'un corpus réel} par Solange Hollard, Mutsuko Tomokiyo et Denis Tuffelli (2005) - Utilisation dans la partie "Émotions"
+			\item \textbf{Une approche de l'expression orale des émotions : étude d'un corpus réel} par Solange Hollard, Mutsuko Tomokiyo et Denis Tuffelli (2005) - Utilisation dans la partie "Émotions"		
+			\item \textbf{Reconnaissance automatique de la parole guidée par des transcriptions a priori} par Benjamin LECOUTEUX (2008) - Utilisation dans la partie "Reconnaissance automatique de la parole"
+			\item \textbf{Reconnaissance automatique de la parole} par Jean-Paul HATON (2013) - Utilisation dans la partie "Reconnaissance automatique de la parole"
+			\item \textbf{Emotional Speech Synthesis} par Gregor O.Hofer (2004) - Utilisation dans la partie "Synthèse vocale"
+			\item \textbf{STATISTICAL PARAMETRIC SPEECH SYNTHESIS} par Alan W Black, Heiga Zen et Keiichi Tokuda (2007) - Utilisation dans la partie "Synthèse vocale"
+			\item \textbf{HMM-Based Speech Synthesis Utilizing Glottal Inverse Filtering} par Tuomo Raitio, Antti Suni, Junichi Yamagishi, Hannu Pulakka, Jani Nurminen, Martti Vainio et Paavo Alk (2011) - Utilisation dans la partie "Émotions"
+			\item \textbf{Emotional Speech Synthesis: A Review} par Marc Schröder (?) - Utilisation dans la partie "Émotions"
+			\item \textbf{Synthèse vocale par sélection d'unité: une méthode pour la redéfinition de lacourbe intonative} par Baris Bozkurt, Thierry Dutoit and Vincent Pagel (2002) - Utilisation dans la partie "Émotions"
+			\item \textbf{Analysis of Statistical Parametric and Unit Selection Speech Synthesis Systems Applied to Emotional Speech} par Roberto Barra-Chicote, Junichi Yamagishi, Simon King, Juan Manuel Montero,
+Javier Macias-Guarasa (2009) - Utilisation dans la partie "Synthèse vocale"
+			
+			
+			
 		\end{itemize}
 
 	%% The List of Tables
