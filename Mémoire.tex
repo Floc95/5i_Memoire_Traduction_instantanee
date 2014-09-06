@@ -118,8 +118,8 @@
 	
 	\section*{Résumé}
 	
-		\paragraph{}Nous proposons ici une étude sur la traduction instantanée voix vers voix dans le cadre d'une réunion. L'objectif principale sera de proposer une solution viable dans l’environnement d'une salle de réunion et à l'aide des technologies disponibles. Nous aborderons aussi plus en détail la gestion des émotions dans le processus : nous pensons en effet que leur interprétation et restitution est un élément clef dans l'élaboration d'un système voix vers voix pour permettre une plus fine compréhension du locuteur dans le court laps de temps qui est imposé par la dynamique d'une conversation.
-		\paragraph{}Nous traiterons donc dans un premier temps de l'ensemble des modules nécessaires à la traduction voix vers voix avant de nous attarder sur la prise en compte des émotions et des limites actuels.
+		\paragraph{}Nous proposons ici une étude sur la traduction instantanée (orale) voix vers voix dans le cadre d'une discussion. L'objectif principal sera de proposer une solution viable dans l’environnement d'une salle de réunion et à l'aide des technologies disponibles. Nous aborderons aussi plus en détail la gestion des émotions dans le processus : nous pensons en effet que leur interprétation et restitution est un élément clef dans l'élaboration d'un système de traduction voix vers voix, pour permettre une plus fine compréhension du locuteur dans le court laps de temps qui est imposé par la dynamique d'une conversation.
+		\paragraph{}Nous traiterons donc dans un premier temps de l'ensemble des modules nécessaires à la traduction voix vers voix avant de nous attarder sur la prise en compte des émotions et des limites actuelles.
 		
 		%% Le résumé est un texte qui donne un premier aperçu du contenu du mémoire : le thème, la problématique, la structure et la synthèse des apports personnels. Par rapport à l’introduction du mémoire, il est plus centré sur les apports et conclusions apportés. Il doit être d’abord rédigé en français sur une taille d’une demi-page à une page, puis il doit être traduit en anglais. Le résumé français est à intituler « Résumé », et celui en anglais « Abstract ». L’ensemble doit faire une à deux pages. 
 	
@@ -145,51 +145,51 @@
 	\chapter{Introduction à la problématique}\label{introduction}
 
 		\section{Le scénario}\label{scenario}
-		Avant toute chose, nous allons commencer par définir le scénario, sans quoi, il serait difficile de se poser des limites dans nos réflexions.
+		Dans un premier temps, afin de poser des limites à notre réflexion, nous allons définir un scénario type pour l'utilisation de notre système tel que nous le concevons.
 
 			\paragraph{Notre scénario}
 
-			\paragraph{}Dans un cadre professionnel, dix personnes de nationalités différentes et donc ne parlant pas la même langue se joignent autour d’une table afin d’avoir une réunion. Chaque personne parlera dans sa langue maternelle.
-			\paragraph{}Afin que tout le monde puissent comprendre ce que les autres disent et que la réunion soit dynamique, un système sera mis en place afin de traduire les paroles de chaque personne et de retranscrire vocalement la traduction. Ce système sera relativement poussé puisqu’il traduira en temps réel, c’est-à-dire qu’il fera la traduction alors même que l’interlocuteur n’a pas fini sa phrase. De plus, ce système sera capable d’analyser les émotions dans la voix et de la restituer dans la synthèse vocale.
-			\paragraph{}Nous allons devoir identifier chaque composante de ce système dans notre scénario et affiner celui-ci.
+			\paragraph{}Dans un cadre professionnel, dix personnes de nationalités et ainsi de langues différentes se rassemblent autour d’une table afin une réunion. Chaque personne parle dans sa langue maternelle.
+			\paragraph{}L'objectif est que chacun puisse s'exprimer pleinement dans sa langue maternelle, mais également comprendre celle des autres locuteurs, tout en gardant un dynamisme dans la réunion. Un système est mis en place afin d'analyer les paroles de chacun, de les traduire, puis de les retranscrire vocalement dans chacunes des langues des autres interlocuteurs. Ce système doit être relativement poussé puisqu'il nécessite une traduction en temps réel, presque instantanée, des paroles du locuteur. Il doit pouvoir commencer à retranscrire la traduction pour les autres participants avant même que le propos du locuteur soit fini, et ce dans le but de garder le dynamisme nécessaire dans une réunion. De plus, ce système doit être capable d’analyser les émotions de la voix du locuteur et de la restituer dans la synthèse vocale des autres participants, afin de proposer aux utilisateurs une experience complète dans la discussion.
+			\paragraph{}Nous allons devoir identifier chaque composante du système mentionné dans notre scénario et affiner ce dernier.
 
 		\section{Les composantes}\label{composantes}
 
 			\paragraph{Le contexte}
 
-			\paragraph{}Premièrement, nous allons devoir déterminer le contexte de la future discutions pour notre système. En effet, que le système sache dans quel contexte se situe la discussion est très important car il permettra d’améliorer grandement la fiabilité de la traduction. Lors de la traduction le niveau de langage approprié pourra être choisi, ce qui rendra la traduction plus fidèle.
+			\paragraph{}Premièrement, il faut déterminer le contexte de la future discussion à traduire pour notre système. En effet, la détermination du contexte de la discussion est primordiale puisqu'elle permet d'améliorer grandement la fiabilité du système et la pertinence de la traduction.Lors de la traduction le niveau de langage approprié peut être choisi, ce qui rendra la traduction plus fidèle au propos initial.
 
-			\paragraph{}On pourrait imaginer que le système analyse la discussion afin de déterminer ce contexte mais le système serait moins efficace le temps de cette analyse. C’est pourquoi nous allons partir du principe que quelqu’un initialise le contexte avant la réunion (via une interface par exemple). Le contexte choisi par cette personne sera donc « Professionnel ».
+			\paragraph{}On peut imaginer que une analyse de la discussion par le système pour que celui-ci détermine le contexte à traduire, mais cette même analyse rendrait le processus de traduction plus lent, et la discussion moins dynamique; or le but est ici de faire un système quasi instantané. C’est pourquoi nous partons du principe que quelqu’un initialise le contexte au commencement de la réunion (via une interface par exemple). Le contexte choisi par cette personne est donc, dans notre cas, « Professionnel ».
 
 			\paragraph{Identification et langues}
 
-			\paragraph{}Une fois le contexte choisi, la réunion peut commencer. Les personnes commenceront alors à parler. Ici nous trouvons alors un autre problème : Comment détecter qui parle ? Et dans quelle langue ?
+			\paragraph{}Une fois le contexte choisi, la réunion débute. Les personnes commencent alors à parler. C'est ici que nous trouvons alors un second problème : comment détecter quel locuteur s'exprime et dans quelle langue ?
 
-			\paragraph{}Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures afin d’identifier chaque personne si le système n’avait qu’un micro central. Cela fonctionnerait certainement mais dans ce cas, comment restituer dans la langue de la personne la traduction sans avoir une cacophonie de traduction dans la salle ? Il nous paraît alors évident qu’il soit nécessaire que chaque participant ai une oreillette dans laquelle on lui traduit les discussions.
+			\paragraph{}Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures vocales afin d’identifier chaque personne, dans le cas où le système ne possède qu’un micro central. La chose est possible, mais si un seul micro est nécessaire, le processus de traduction nécessite que chacun des participants ait une oreillette. En effet, sans cela, chacune des traduction se ferait entendre dans la salle en même temps, créant alors une confusion pour tous les participants.
 
-			\paragraph{}Afin d’éviter un processus d’identification des propriétaires par rapport à leur voix afin de ne pas leur traduire leur propre parole, il nous a paru plus simple de supposer que les oreillettes contiennent un micro dans lequel parle l’interlocuteur. De cette manière, chaque personne sera identifiée de manière simple et sûre.
+			\paragraph{}Mais le micro central amène une autre problèmatique : chaque parole serait retranscrite, même à celui qui les prononce, créant pour lui un écho malvenu. Le processus d'identification des voix à travers un micro unique recquiert également une analyse des voix beaucoup plus poussée. Il nous a donc paru plus simple de joindre aux oreillettes précédemment citées un micro dans lequel parle le participant. De cette manière, chaque personne sera identifiée de manière simple et sûre.
 
-			\paragraph{}Pour ce qui est de la seconde question, c’est-à-dire de comment connaître la langue, il s’agira de la détecter en fonction de ce que la personne parlera. Un peu à la manière d’un Google Translate avec l’écrit. Mais nous reviendront sur la réalisation de cette tâche plus tard.
+			\paragraph{}Pour ce qui est de la seconde question, à savoir l'identification de langue des participants, il s’agit de la détecter en fonction des mots prononcés par ceux-ci. Le processus reprend la manière de traduire de Google Translate, mais à l'oral. Nous reviendront sur la réalisation de cette tâche plus tard.
 
 			\paragraph{Reconnaissance automatique de la parole}
 
-			\paragraph{}A ce stade, il nous faut encore réussir à mettre sous format textuel ce qu’une personne dit afin de le traduire par la suite. Il existe des logiciels spécialisé dans ce travail, on les appelle des logiciels de Speech To Text, ou en français : \og Reconnaissance automatique de la parole \fg. Il existe une multitude de logiciels comme ceci, c’est pourquoi nous n’allons pas plus en parler pour le moment et estimer que ce travail est fait.
+			\paragraph{}A ce stade, il nous faut encore réussir à mettre sous format textuel ce qu’une personne dit afin de le traduire par la suite. Il existe des logiciels spécialisés dans ce travail, qui sont les logiciels de Speech To Text, ou en français : \og Reconnaissance automatique de la parole \fg. Il existe une multitude de logiciels efficaces dans cette partie du processus, c’est pourquoi nous n’allons pas plus en parler pour le moment et estimer que cette tâche est remplie.
 
 			\paragraph{Traduction}
 
-			\paragraph{}Maintenant que l’on dispose du texte, nous pouvons enfin le traduire dans toutes les autres langues présentes dans la salle. Pour ce faire nous allons devoir utiliser un traducteur, seulement, pour parfaire la traduction, le traducteur devra prendre en compte le contexte de la discussion afin de choisir les traductions les plus adaptées. 
+			\paragraph{}Maintenant que l’on dispose du texte, nous pouvons enfin le traduire vers les langues de chacun des autres participants présents dans la salle. Pour se faire, nous allons devoir utiliser un traducteur, seulement, pour parfaire la traduction, le traducteur devra prendre en compte le contexte de la discussion afin de choisir les traductions les plus adaptées. 
 
 			\paragraph{Synthèse vocale}
 
-			\paragraph{}Il est désormais temps de restituer la traduction à chaque interlocuteur. Pour réaliser cela, nous allons devoir faire appel à un système de synthèse vocale. Une synthèse vocale a pour but d’exprimer un texte par la parole, de la manière la plus naturelle et humaine possible dans notre cas. De nos jours, il existe une multitude de logiciels de synthèse vocale, nous en parlerons plus en détails dans une autre partie.
+			\paragraph{}Nous pouvons alors nous concentrer vers la restitution de la traduction à chaque interlocuteur. Pour réaliser cela, nous allons devoir faire appel à un système de synthèse vocale. Une synthèse vocale a pour but d’exprimer un texte par la parole. Dans le cas de notre système, cette synthèse doit être la plus naturelle et humaine possible, afin de conserver l'authenticité des phrases mais aussi de garder la dimension humaine et sociale de la discussion. De nos jours, il existe une multitude de logiciels de synthèse vocale, nous en parlerons plus en détails dans une autre partie.
 
 			\paragraph{Émotions}
 
-			\paragraph{}Il temps de parler d'une composante qui est transverse à plusieurs autres, citées plus haut. Il s'agit de l'émotion, nous souhaitons que la traduction permette à celui qui écoute de ressentir l'émotion transmise par la personne qui parle. Pour se faire, il va falloir analyser la voix (Speech To Text), en analyser les émotions puis la retranscrire dans le choix de certains mots peut-être, durant la traduction. Puis il faudra la retranscrire via la synthèse vocale de la manière la plus fidèle possible. 
+			\paragraph{}Il temps de parler d'une composante qui est transverse à plusieurs autres, citées plus haut. Il s'agit de l'émotion. Nous souhaitons que la traduction permette à celui qui écoute de ressentir l'émotion transmise par la personne qui parle. Pour se faire, il va falloir analyser la voix (Speech To Text), en analyser les émotions puis la retranscrire, dans le choix de certains mots peut-être, durant la traduction. Puis il faudra la retranscrire via la synthèse vocale de la manière la plus fidèle possible. 
 
-			\paragraph{}La composantes de l'émotion est très intéressante car encore absente des solutions temps réel actuel, sa détection et synthèse en temps réel est un problème toujours non résolu alors que son apport en terme de dynamisme comme d'aide à la compréhension -qui sont deux facteurs très important pour un système temps réel- sont très importants. C'est pourquoi nous nous pencherons plus particulièrement sur ce facteur et nous détaillerons comment la détecter, comment la comprendre et comment la retransmettre dans les limites imposés de notre scénario.
+			\paragraph{}La composantes de l'émotion est très intéressante car encore absente des solutions temps réel actuelles, sa détection et synthèse en temps réel est un problème toujours non résolu alors que son apport en terme de dynamisme ainsi que d'aide à la compréhension -qui sont deux facteurs très importants pour un système temps réel- est considérable. C'est pourquoi nous nous pencherons plus particulièrement sur ce facteur et nous détaillerons comment la détecter, comment la comprendre et comment la retransmettre dans les limites imposées de notre scénario.
 			
-			\paragraph{}Dans un premier temps nous aborderons les solutions existantes permettant de répondre à chacune des étapes de notre problématique avant de faire un point plus détailler sur la reconnaissance et la retranscription des émotions. Pour finir nous évoquerons les limitations inhérentes à notre solution.
+			\paragraph{}Dans un premier temps nous aborderons les solutions existantes permettant de répondre à chacune des étapes de notre problématique avant de faire un point plus détaillé sur la reconnaissance et la retranscription des émotions. Pour finir nous évoquerons les limitations inhérentes à notre solution.
 
 	%% <== Fin de l'introduction
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -205,64 +205,64 @@
 
 			\paragraph{}La reconnaissance automatique de la parole (que nous abrégerons ci-après en RAP) est un système qui permet d'analyser la parole d'une personne pour la retranscrire sous la forme d'un texte.
 
-			\paragraph{}Cette technique est fréquemment utilisée de nos jours. Que ce soit dans les serveurs vocaux (messageries, assistance...), sur un ordinateur avec la dictée vocale ou dans les assistants personnels (Google Now, Siri).
+			\paragraph{}Cette technique est fréquemment utilisée de nos jours, que ce soit dans les serveurs vocaux (messageries, assistance...), sur un ordinateur avec la dictée vocale ou dans les assistants personnels (Google Now, Siri).
 
-			\subsection{Fonctionnement générale}
+			\subsection{Fonctionnement général}
 
 				\paragraph{Petit historique} 
 
-				\paragraph{}Les premiers systèmes de RAP numériques datent d'il y'a plus de cinquante ans, ces premières solutions était limité à la reconnaissance de mots isolés dans un vocabulaire très limité (cardinal d'une dizaine de mots). Nous nous intéresserons ici uniquement aux techniques modernes permettant de couvrir une langue complète et de reconnaître de la parole continue, soit des phrases et discours complets ayant un sens.
+				\paragraph{}Les premiers systèmes de RAP numériques datent d'il y'a plus de cinquante ans. Ces premières solutions était limitées à la reconnaissance de mots isolés dans un vocabulaire très restreint (comprenant une dizaine de mots). Nous nous intéressons ici uniquement aux techniques modernes permettant de couvrir une langue complète et de reconnaître de la parole continue, soit des phrases et discours complets ayant un sens.
 
 				\paragraph{Parole continue}
-				\paragraph{}Les systèmes de reconnaissance de parole continue reçoivent en entrée un signal (analogique ou numérique) correspondant à un message orale à retranscrire en texte, ce qui pose un certain nombre de difficultées successives. La continuité de texte impose au système de :
+				\paragraph{}Les systèmes de reconnaissance de parole continue reçoivent en entrée un signal (analogique ou numérique) correspondant à un message oral à retranscrire en texte, ce qui pose un certain nombre de difficultées successives. La continuité de texte impose au système de :
 				\begin{itemize}
-					\item redécouper le signal en mots, tâche compliqué par le fait qu'à l'oral il n'y a pas de réel séparation (pause) entre les mots, si ce n'est pour ponctuer, et que dans certain cas des liaisons sont faite entre plusieurs mots une syllabe pouvant ainsi se retrouver \textit{à cheval} entre deux mots
+					\item redécouper le signal en mots, tâche compliqué par le fait qu'à l'oral il n'y a pas de réel séparation (pause) entre les mots, si ce n'est pour ponctuer, et que dans certain cas des liaisons sont faite entre plusieurs mots, une syllabe pouvant ainsi se retrouver \textit{à cheval} entre deux mots
 					\item rassembler les mots en phrase en suivant des problématiques de syntaxe
-					\item de vérifier que le résultat obtenue est sémantiquement correcte, chaque phrase doit avoir un sens
+					\item de vérifier que le résultat obtenu est sémantiquement correct, chaque phrase devant avoir un sens
 				\end{itemize}
 
-				\paragraph{}Le modèle le plus courant actuellement consiste à séparer les deux types principaux de difficultés, d'une part le signal acoustique est décodé vers une information phonétique puis les informations phonétiques sont traitées par des algorithmes de modélisation du langage.
+				\paragraph{}Le modèle le plus courant actuellement consiste à séparer les deux types principaux de difficultés. D'une part le signal acoustique est décodé vers une information phonétique, puis les informations phonétiques sont traitées par des algorithmes de modélisation du langage.
 
-				\paragraph{}Tout d'abord le décodage phonétique s'opère en analysant par fenêtre le signal d'origine puis en comparant ses composés à la bibliothèque d'unités connue utilisée par le système (mot, syllabe, diphone, phonème, etc.).
-				Dans un second temps les informations décodées doivent être traitées pour obtenir des phrases syntaxiquement et sémantiquement correcte, pour ce faire les systèmes actuels reposent sur des procédés statistiques étudiant la probabilité d'une suite de mots et ajustant ainsi les séquences trouvé.
+				\paragraph{}Tout d'abord le décodage phonétique s'opère en analysant par fenêtre le signal d'origine puis en comparant ses composés à la bibliothèque d'unités connues utilisée par le système (mot, syllabe, diphone, phonème, etc.).
+				Dans un second temps les informations décodées doivent être traitées pour obtenir des phrases syntaxiquement et sémantiquement correctes, pour se faire les systèmes actuels reposent sur des procédés statistiques étudiant la probabilité d'une suite de mots et ajustant ainsi les séquences trouvées.
 
 				\subsubsection{Étude du signal (décodage acoustico-phonétique)}
 
-					\paragraph{}L'étude du signal s'opère le plus souvent via une analyse paramétrique de ce dernier et permets ainsi de retrouver l'élément acoustique le plus probable correspondant au signal.
-					\paragraph{}Lors de l'acquisition des données acoustiques des pertes liées au matériel (plage de fréquence du microphone) sont inévitable ainsi que des perturbations liée à l’environnement (réverbération de la salle, bruit ambiant). Nous n’étudierons pas ici les différentes solutions qui existent permettant d’amoindrir l'impact des deux facteurs précédemment énoncé et passerons directement à l'étude du signal nettoyé.
+					\paragraph{}L'étude du signal s'opère le plus souvent via une analyse paramétrique de ce dernier et permet ainsi de retrouver l'élément acoustique le plus probable correspondant au signal.
+					\paragraph{}Lors de l'acquisition des données acoustiques, des pertes liées au matériel (plage de fréquence du microphone) sont inévitables, ainsi que des perturbations liées à l’environnement (réverbération de la salle, bruit ambiant). Nous n’étudierons pas ici les différentes solutions qui existent permettant d’amoindrir l'impact des deux facteurs précédemment énoncés et passerons directement à l'étude du signal nettoyé.
 					\paragraph{}L'étude se fait alors par fenêtrage, le signal de la parole n'évoluant que peu sur des durées de quelques millisecondes (stationnarité locale). Sur chaque fenêtre une analyse spectrale est alors effectuée, par exemple grâce à la décomposition du signal sur la fenêtre considérée via une transformée de fournier puis en analysant le résultat avec un ensemble de filtres passe-bande permettant le représentation de l’échantillon par un sonagramme. Il suffirait alors d'effectuer une reconnaissance de forme en comparant le résultat à notre bibliothèque et en conservant l'élément le plus probable.
-					\paragraph{}Malheureusement il n'est pas possible d'effectuer directement une tel opération, la durée de chaque unité à reconnaître n'étant pas stable il faut pouvoir faire coïncider le signal relevé avec les données de notre bibliothèque via des procédés de normalisation temporel.
-					\paragraph{}Pour ce faire il existe plusieurs modèles notamment les modèles Markoviens Cachées, les modèles neuronimétriques ou encore les algorithmes de comparaison dynamique.
+					\paragraph{}Malheureusement il n'est pas possible d'effectuer directement une telle opération, la durée de chaque unité à reconnaître n'étant pas stable il faut pouvoir faire coïncider le signal relevé avec les données de notre bibliothèque via des procédés de normalisation temporelle.
+					\paragraph{}Pour se faire il existe plusieurs modèles notamment les modèles Markoviens Cachées, les modèles neuronimétriques ou encore les algorithmes de comparaison dynamique.
 
-					\paragraph{}La technique la plus couramment utilisé aujourd'hui se fait par modèles de Markov caché. Il est alors possible de retrouver l'ensemble des états probablement parcouru à partir des observations faites en isolent le chemin le plus probable.							
+					\paragraph{}La technique la plus couramment utilisée aujourd'hui se fait par modèles de Markov caché. Il est alors possible de retrouver l'ensemble des états probablement parcourus à partir des observations faites en isolant le chemin le plus probable.							
 
 				\clearpage
 
 				\subsubsection{Reconstruction sémantique}
 
-					\paragraph{}Une fois les unités phonétiques de bases isolées il reste alors à identifier les formes lexicales correspondantes. Cette étape est appelé le décodage. Les techniques de décodages reposent sur des graphes on retrouve alors des résolutions se basant sur l'algorithme A*. On génère alors un graphe où les nœuds comportent tous les mots probables composés par les unités phonétique préalablement isolés.
+					\paragraph{}Une fois les unités phonétiques de bases isolées, il reste alors à identifier les formes lexicales correspondantes. Cette étape est appelée le décodage. Les techniques de décodages reposent sur des graphes. On retrouve alors des résolutions se basant sur l'algorithme A*. On génère un graphe où les nœuds comportent tous les mots probables composés par les unités phonétiques préalablement isolées.
 
 			\subsection{Et pour nous ?}
 
 				\paragraph{}Dans le cadre de notre scénario, plusieurs des difficultés peuvent être purement ignorées. Ainsi l'étape de soustraction du bruit ambiant n'est pas nécessaire, les réunions se déroulant typiquement dans des lieux éloignés des perturbations sonores.
 
-				\paragraph{}Pour ce qui est du problème de parole concurrente (deux interlocuteurs se mettent à parler en même temps), celui-ci pose deux problèmes : séparer ce que disent les deux intervenants pour permettre d'identifier ce que chacun dit, puis retranscrire le résultat à l'auditoire. S'il est certainement possible de séparer ce que dit chaque intervenant cela demanderait des traitement supplémentaire qui ne sont d'après nous pas justifiable : comment retranscrire ensuite à l'auditoire ce qui est dit ? Le résultat de chaque traduction ne peut pas être rendu en même temps, aucun ne serait alors intelligible et si l'on décale la synthèse de l'une des traduction quand la passer ? Elle se retrouverait déplacé à plus tard indéfiniment à mesure que d'autres intervenants prendraient la parole. Nous avons donc trouvé préférable d'ignorer ce cas en nous reposant sur la discipline des participants.
+				\paragraph{}Pour ce qui est du problème de parole concurrente (deux interlocuteurs se mettent à parler en même temps), celui-ci pose deux problèmes : séparer ce que disent les deux intervenants pour permettre d'identifier ce que chacun dit, puis retranscrire le résultat à l'auditoire. S'il est certainement possible de séparer ce que dit chaque intervenant cela demanderait des traitements supplémentaires qui ne sont d'après nous pas justifiables : comment retranscrire ensuite à l'auditoire ce qui est dit ? Le résultat de chaque traduction ne peut pas être rendu en même temps, aucun ne serait alors intelligible et si l'on décale la synthèse de l'une des traduction, quand la passer ? Elle se retrouverait déplacée à plus tard indéfiniment à mesure que d'autres intervenants prendraient la parole. Nous avons donc trouvé préférable d'ignorer ce cas en nous reposant sur la discipline des participants.
 
-				\paragraph{}Quand aux techniques de reconnaissances se posent trois questions : l'unité à utiliser, le modèle de décodage acoustico-phonétique et l'algorithme de reconnaissance lexical/grammatical; ce dernier étant directement liée au choix du modèle de décodage acoustico-phonétique. 
-				\paragraph{}Dans le cas de la parole continue, il a été identifié que l'unité la plus adapté était le phonème : en effet l'ordre de grandeur des phonèmes nécessaire à la modélisation d'un langage est très faible, même lors de l'utilisation de phonème contextualisé (prenant en compte de possibles liaisons) et permet ainsi une relative légèreté du dictionnaire comportant les mots reconnaissable. Nous utiliserons donc le phonème.
-				\paragraph{}Les autres paramètres n’ayant pas d’impact particulière sur le cœur de notre recherche nous sélectionnerons le système le plus utilisé, les Modèles de Markov cachés, celui-ci ayant déjà prouvé son efficacité.
+				\paragraph{}Quand aux techniques de reconnaissances se posent trois questions : l'unité à utiliser, le modèle de décodage acoustico-phonétique et l'algorithme de reconnaissance lexicale/grammaticale; ce dernier étant directement liée au choix du modèle de décodage acoustico-phonétique. 
+				\paragraph{}Dans le cas de la parole continue, il a été identifié que l'unité la plus adaptée était le phonème : en effet l'ordre de grandeur des phonèmes nécessaire à la modélisation d'un langage est très faible, même lors de l'utilisation de phonèmes contextualisés (prenant en compte de possibles liaisons) et permet ainsi une relative légèreté du dictionnaire comportant les mots reconnaissable. Nous utiliserons donc le phonème.
+				\paragraph{}Les autres paramètres n’ayant pas d’impact particulier sur le cœur de notre recherche nous sélectionnerons le système le plus utilisé, les Modèles de Markov cachés, celui-ci ayant déjà prouvé son efficacité.
 
 		\section{Traduction}\label{traduction}
 
 			\subsection{Présentation et but}
 
 				\paragraph{}La traduction est le principe de faire passer un texte d'une langue à une autre.
-				Elle sert à représenter un texte dans une autre langue, elle en garde donc le même sens et les deux textes comportes donc beaucoup de similitudes.
+				Elle sert à représenter un texte dans une autre langue, elle en garde donc le même sens et les deux textes comportent donc beaucoup de similitudes.
 
 				\paragraph{}Historiquement, la traduction a d'abord été un travail d'humain. Puis par la suite, c'est l'informatique qui s'en est chargé. Lorsqu'un système informatique traduit un texte, nous appelons cela de la « traduction automatique ».
 				Dans notre scénario, c'est cette traduction automatique dont nous allons parler.
 
-				\paragraph{}La traduction ne prend pas seulement en compte le fait de traduire une suite de mot d'une langue à une autre. Il faut préserver le sens et être le plus fidèle possible. Pour cela, le traducteur (ou système de traduction) doit connaître le contexte du texte, la grammaire des deux langues, ainsi que leur cultures. En effet, la culture compte pour beaucoup car certains mots dans une langue n'ont pas la même signification dans une autre, il faut alors transformer les mots afin de refléter l'idée du texte original. C'est pourquoi les traduction les plus fiables et fidèles sont faites par des humains spécialisés dans la traduction. 
+				\paragraph{}La traduction ne prend pas seulement en compte le fait de traduire une suite de mot d'une langue à une autre. Il faut préserver le sens et être le plus fidèle possible. Pour cela, le traducteur (ou système de traduction) doit connaître le contexte du texte, la grammaire des deux langues, ainsi que leur cultures. En effet, la culture compte pour beaucoup car certains mots dans une langue n'ont pas la même signification dans une autre, il faut alors transformer les mots afin de refléter l'idée du texte original. C'est pourquoi les traductions les plus fiables et fidèles sont faites par des humains spécialisés dans la traduction. 
 
 			\subsection{Solutions}
 
@@ -290,7 +290,7 @@
 					\item \textbf{Le transfert direct} : il n'y a pas presque pas d'analyse, toute la traduction se joue au niveau du transfert. Les méthodes de traductions utilisant ce type de transfert sont la traduction par l'exemple et la traduction statistique. Dans cette possibilité, la traduction n'est qu'un processus de décodage.
 					\item \textbf{Le transfert syntaxique} : ici, le transfert est syntaxique, c'est à dire que l'on va s'appuyer sur les arbres syntaxique des langues afin de construire des phrases de même sens. La méthode de traductions utilisant ce type de transfert est la traduction automatique à base de règles.
 					\item \textbf{Le transfert sémantique} : le transfert est sémantique, c'est à dire que l'on traduit à partir du sens du texte d'origine. Il s'agit de la méthode de traduction que nous utilisons (les humains). Il n'y a que très peu de traducteur automatique se basant sur le transfert sémantique, de par sa complexité à modéliser les sémantiques ainsi que par sa difficulté à la mettre en place.
-					\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l’inter-langue sous le nom de « langue pivot ». Cette méthode n'a pas eu de succès chez ceux qui l'ont essayé.
+					\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l’inter-langue sous le nom de « langue pivot ». Cette méthode n'a pas eu de succès chez ceux qui l'ont essayée.
 				\end{itemize}
 
 				\paragraph{}De nos jours, les moteurs de traduction utilisent pour la plupart la traduction par règles ou la traduction statistique. Mais il existe une approche utilisant ces deux systèmes de traductions qu'utilise les leaders du marché que sont Systran, Google Translate et Bing Translator.
@@ -298,10 +298,10 @@
 
 				\subsubsection{Traduction statistique}
 
-					\paragraph{La traduction automatique statistique} est basée sur l'utilisation de « modèles statistiques » auto construits à partir de corpus monolingues et bilingues. La construction des « modèles statistiques » est rapide mais requiert d'avoir à disposition des volumes importants de textes traduits. Généralement, un modèle bilingue nécessite au minimum 2 millions de mots pour la traduction dans un domaine spécifique, mais il en nécessite beaucoup plus pour le domaine général. La traduction automatique statistique requiert donc des configurations matérielles lourdes afin d'utiliser les modèles de traduction tout en fournissant des performances normales.
+					\paragraph{La traduction automatique statistique} est basée sur l'utilisation de « modèles statistiques » auto construits à partir de corpus monolingues et bilingues. La construction des « modèles statistiques » est rapide mais requiert d'avoir à disposition des volumes importants de textes traduits. Généralement, un modèle bilingue nécessite au minimum deux millions de mots pour la traduction dans un domaine spécifique, mais il en nécessite beaucoup plus pour le domaine général. La traduction automatique statistique requiert donc des configurations matérielles lourdes afin d'utiliser les modèles de traduction tout en fournissant des performances normales.
 
-					\paragraph{}Les modèles statistiques sont basés sur des corpus parallèles, c'est à dire que le même corpus est traduit dans une (ou plusieurs) autre(s) langue(s). Les alignements entre les textes peuvent être réalisés à différents niveaux : paragraphes, phrases, expressions et mots. Cependant, l'alignement mot-à-mot reste celui qui nous offre le plus d'information.
-					Pour observer comment cet alignement est réalisé, veuillez-vous référer au schéma \ref{fig:corpus_parallele} en annexe.
+					\paragraph{}Les modèles statistiques sont basés sur des corpus parallèles, c'est à dire que le même corpus est traduit dans une (ou plusieurs) autre(s) langue(s). Les alignements entre les textes peuvent être réalisés à différents niveaux : paragraphes, phrases, expressions et mots. Cependant, l'alignement mot-à-mot reste celui qui nous offre le plus d'informations.
+					Pour observer comment cet alignement est réalisé, veuillez vous référer au schéma \ref{fig:corpus_parallele} en annexe.
 
 					\clearpage
 					
@@ -314,7 +314,7 @@
 						\label{fig:dictionnaire_bilingue}
 					\end{figure}
 
-					\paragraph{}Chaque ligne du tableau représente une traduction et chaque élément de cette traduction est séparée par le symbole « ||| ». Dans la première colonne apparaît le mot ou la séquence de mots d'une langue source, dans la seconde colonne apparaît le mot ou la séquence de mots en langue cible. Puis, la dernière colonne représente la probabilité de correspondance de ce mot lors d'une traduction. 
+					\paragraph{}Chaque ligne du tableau représente une traduction et chaque élément de cette traduction est séparé par le symbole « ||| ». Dans la première colonne apparaît le mot ou la séquence de mots d'une langue source, dans la seconde colonne apparaît le mot ou la séquence de mots en langue cible. Puis, la dernière colonne représente la probabilité de correspondance de ce mot lors d'une traduction. 
 					\paragraph{}Dans la réalité, la dernière colonne contient une série de scores du modèle statistique. Mais nous avons choisi de n'afficher que le score du modèle de traduction afin de simplifier la compréhension. Le score du modèle de traduction est utilisé pour évaluer les différentes traductions possibles pour un même mot ou séquence de mot en langue source. Plus le score est proche de 1, plus la traduction a de chance d'être la bonne. Par exemple, la traduction de « la » en « the » a une probabilité de 0.6 (60\%), c'est à dire que dans la majorité des cas, il faudra utiliser cette traduction et dans 40\% des cas, on devra utiliser la traduction en « this ».
 					 
 					\paragraph{}Lors d'une traduction, le système de traduction automatique statistique va commencer par segmenter le texte en mots, séquences de mots ou signes de ponctuations. Puis, il assemble un ensemble d'hypothèses de traduction utilisant les traductions que nous avons montrés dans la figure \ref{fig:corpus_parallele}. Comme il existe de nombreuses façons de découper le texte et de traduire les séquences, la création des hypothèses produit une longue liste d'hypothèses de traduction. A chaque hypothèse on associe un score calculé à partir du modèle statistique. L'hypothèse ayant le plus gros score est alors choisie pour être la traduction que l'on va retourner.
