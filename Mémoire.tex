@@ -157,7 +157,7 @@
 
 			\paragraph{Le contexte}
 
-			\paragraph{}Premièrement, il faut déterminer le contexte de la future discussion à traduire pour notre système. En effet, la détermination du contexte de la discussion est primordiale puisqu'elle permet d'améliorer grandement la fiabilité du système et la pertinence de la traduction.Lors de la traduction le niveau de langage approprié peut être choisi, ce qui rendra la traduction plus fidèle au propos initial.
+			\paragraph{}Premièrement, il faut déterminer le contexte de la future discussion à traduire pour notre système. En effet, la détermination du contexte de la discussion est primordiale puisqu'elle permet d'améliorer grandement la fiabilité du système et la pertinence\textbf{} de la traduction.Lors de la traduction le niveau de langage approprié peut être choisi, ce qui rendra la traduction plus fidèle au propos initial.
 
 			\paragraph{}On peut imaginer que une analyse de la discussion par le système pour que celui-ci détermine le contexte à traduire, mais cette même analyse rendrait le processus de traduction plus lent, et la discussion moins dynamique; or le but est ici de faire un système quasi instantané. C’est pourquoi nous partons du principe que quelqu’un initialise le contexte au commencement de la réunion (via une interface par exemple). Le contexte choisi par cette personne est donc, dans notre cas, « Professionnel ».
 
@@ -497,7 +497,23 @@
 					\paragraph{}Néanmoins, maintenant que les progrès en terme de synthèse vocale permettent la restitution d'une voix neutre crédible, les recherches s'orientent plus vers la reproduction des émotions. C'est le dernier pas vers des voix de synthèse réellement vraisemblables.
 						
 					\subsubsection{Retranscription par synthèse vocale}
-					
+%%NEW STUFF BEGIN					
+					\paragraph{}Le challenge dans notre scénario au niveau de la synthèse vocale réside dans la retranscription des émotions. Avant de nous pencher sur la sélection d'un système de synthèse vocale nous aborderons trois points :  
+					\begin{itemize}
+							\item \textbf{}Les participants sont hautement susceptibles d'appartenir à des culture différentes 
+							\item \textbf{}Notre système ne comprend qu'une synthèse vocale 
+							\item \textbf{}Le cadre de notre scénario mène à une faible présence d'émotions poussé à l'extrême 
+					\end{itemize}
+Notre système devra pouvoir restitué des émotions dans plusieurs langues ce qui implique très probablement que les personnes présentent ne seront pas du même milieu culturel, il est alors préférable que la méthode choisi soit capable de s'adapter à de potentiels différences dans la vocalisation des émotions selon les cultures.  
+%%TODO add sources
+
+				\paragraph{}Il semblerait heureusement que la reconnaissance des émotions dans un contenu vocalisé soit très majoritairement indépendante des milieux culturels du locuteur et de l'interlocuteur. Il ne nous est alors pas nécessaire de s'inquiéter de l'adaptabilité du système choisi à toutes les langues. 
+
+				\paragraph{}Notre dispositif ne comprend pas non plus de reproduction de visage qui pourrait aider à exprimer une émotions, mais dans notre contexte les participants sont présents dans une même pièce les expressions corporel et de visage sont alors visible directement sur le locuteur. De ce fait un autre risque peut immerger : notre système ayant forcément un délai entre la locution originel et la retranscription en cas de changement rapide dans les émotions véhiculé par l'orateur les indices visuels pourrait ne pas corrélé avec ce que les interlocuteurs sont entrain d'entendre. Ne voyant pas de solutions commode nous avons choisi d'ignorer ce problème. 
+
+				\paragraph{}Dans une réunion classique le ratio entre phrases légèrement tinté d'émotions et marque d'émotion extrême est très grandement en faveur de la nuance. Notre choix devra donc se porter sur un système compétent dans la synthèse de multiple nuance d'une émotion. Ce choix est d'autant plus appuyé par notre contexte, si nous considérons que tous les participants sont dans une même pièce en cas d'éclat vif d'une émotion cela sera perceptible par tous directement.
+			
+%% NEW STUFF END					
 						\paragraph{Systèmes à sélection d'unité}
 						\paragraph{}Ce système qui a déjà été présenté dans la section « Synthétiseur vocal » est le système le plus simple permettant de générer une voix capable d'émotions, et aussi l'un des plus robuste et crédible : se basant entièrement sur le principe de modifier au minimum voir même de garder intact les enregistrement du corpus, la prosodie et la qualité de voix sont parfaites. Le plus gros désavantage de ce système se trouvant dans le travail d'enregistrement et d'annotation du corpus qu'il faut produire en amont.
 						\paragraph{}Il est effectivement nécessaire d'enregistrer une quantité considérable de sons pour parvenir à la constitution d'une base de données exhaustive et ce avec un seul locuteur pour toutes les émotions. Aussi, pour l'introduction d'une nouvelle émotion dans le système, il sera nécessaire d'enregistrer à nouveau tout le contenu de la base avec cette nouvelle émotion. Il est possible de palier le problème en proposant en plus des annotations symboliques manuels une analyse des signes acoustiques d'une émotion et les utiliser lors de la sélection, piochant ainsi dans les résultats proches en cas de trou.
