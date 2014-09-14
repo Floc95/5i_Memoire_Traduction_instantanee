@@ -91,7 +91,7 @@
 	%% ==> Write your text here or include other files.
 
 	%% The simple version:
-	\title{Mémoire de fin d’études : Traduction instantanée et émotions}
+	\title{Mémoire de fin d'études : Traduction instantanée et émotions}
 	\author{Florian Constant et Aubry Gudel}
 	%\date{} %%If commented, the current date is used.
 	\maketitle
@@ -118,10 +118,10 @@
 	
 	\section*{Résumé}
 	
-		\paragraph{}Nous proposons ici une étude sur la traduction instantanée (orale) voix vers voix dans le cadre d'une discussion. L'objectif principal sera de proposer une solution viable dans l’environnement d'une salle de réunion et à l'aide des technologies disponibles. Nous aborderons aussi plus en détail la gestion des émotions dans le processus : nous pensons en effet que leur interprétation et restitution est un élément clef dans l'élaboration d'un système de traduction voix vers voix, pour permettre une plus fine compréhension du locuteur dans le court laps de temps qui est imposé par la dynamique d'une conversation.
+		\paragraph{}Nous proposons ici une étude sur la traduction instantanée (orale) voix vers voix dans le cadre d'une discussion. L'objectif principal sera de proposer une solution viable dans l'environnement d'une salle de réunion et à l'aide des technologies disponibles. Nous aborderons aussi plus en détail la gestion des émotions dans le processus : nous pensons en effet que leur interprétation et restitution est un élément clef dans l'élaboration d'un système de traduction voix vers voix, pour permettre une plus fine compréhension du locuteur dans le court laps de temps qui est imposé par la dynamique d'une conversation.
 		\paragraph{}Nous traiterons donc dans un premier temps de l'ensemble des modules nécessaires à la traduction voix vers voix avant de nous attarder sur la prise en compte des émotions et des limites actuelles.
 		
-		%% Le résumé est un texte qui donne un premier aperçu du contenu du mémoire : le thème, la problématique, la structure et la synthèse des apports personnels. Par rapport à l’introduction du mémoire, il est plus centré sur les apports et conclusions apportés. Il doit être d’abord rédigé en français sur une taille d’une demi-page à une page, puis il doit être traduit en anglais. Le résumé français est à intituler « Résumé », et celui en anglais « Abstract ». L’ensemble doit faire une à deux pages. 
+		%% Le résumé est un texte qui donne un premier aperçu du contenu du mémoire : le thème, la problématique, la structure et la synthèse des apports personnels. Par rapport à l'introduction du mémoire, il est plus centré sur les apports et conclusions apportés. Il doit être d'abord rédigé en français sur une taille d'une demi-page à une page, puis il doit être traduit en anglais. Le résumé français est à intituler « Résumé », et celui en anglais « Abstract ». L'ensemble doit faire une à deux pages. 
 	
 	\section*{Abstract}
 		
@@ -149,8 +149,8 @@
 
 			\paragraph{Notre scénario}
 
-			\paragraph{}Dans un cadre professionnel, dix personnes de nationalités et ainsi de langues différentes se rassemblent autour d’une table afin une réunion. Chaque personne parle dans sa langue maternelle.
-			\paragraph{}L'objectif est que chacun puisse s'exprimer pleinement dans sa langue maternelle, mais également comprendre celle des autres locuteurs, tout en gardant un dynamisme dans la réunion. Un système est mis en place afin d'analyer les paroles de chacun, de les traduire, puis de les retranscrire vocalement dans chacunes des langues des autres interlocuteurs. Ce système doit être relativement poussé puisqu'il nécessite une traduction en temps réel, presque instantanée, des paroles du locuteur. Il doit pouvoir commencer à retranscrire la traduction pour les autres participants avant même que le propos du locuteur soit fini, et ce dans le but de garder le dynamisme nécessaire dans une réunion. De plus, ce système doit être capable d’analyser les émotions de la voix du locuteur et de la restituer dans la synthèse vocale des autres participants, afin de proposer aux utilisateurs une experience complète dans la discussion.
+			\paragraph{}Dans un cadre professionnel, dix personnes de nationalités et ainsi de langues différentes se rassemblent autour d'une table afin une réunion. Chaque personne parle dans sa langue maternelle.
+			\paragraph{}L'objectif est que chacun puisse s'exprimer pleinement dans sa langue maternelle, mais également comprendre celle des autres locuteurs, tout en gardant un dynamisme dans la réunion. Un système est mis en place afin d'analyer les paroles de chacun, de les traduire, puis de les retranscrire vocalement dans chacunes des langues des autres interlocuteurs. Ce système doit être relativement poussé puisqu'il nécessite une traduction en temps réel, presque instantanée, des paroles du locuteur. Il doit pouvoir commencer à retranscrire la traduction pour les autres participants avant même que le propos du locuteur soit fini, et ce dans le but de garder le dynamisme nécessaire dans une réunion. De plus, ce système doit être capable d'analyser les émotions de la voix du locuteur et de la restituer dans la synthèse vocale des autres participants, afin de proposer aux utilisateurs une experience complète dans la discussion.
 			\paragraph{}Nous allons devoir identifier chaque composante du système mentionné dans notre scénario et affiner ce dernier.
 
 		\section{Les composantes}\label{composantes}
@@ -159,29 +159,31 @@
 
 			\paragraph{}Premièrement, il faut déterminer le contexte de la future discussion à traduire pour notre système. En effet, la détermination du contexte de la discussion est primordiale puisqu'elle permet d'améliorer grandement la fiabilité du système et la pertinence\textbf{} de la traduction.Lors de la traduction le niveau de langage approprié peut être choisi, ce qui rendra la traduction plus fidèle au propos initial.
 
-			\paragraph{}On peut imaginer que une analyse de la discussion par le système pour que celui-ci détermine le contexte à traduire, mais cette même analyse rendrait le processus de traduction plus lent, et la discussion moins dynamique; or le but est ici de faire un système quasi instantané. C’est pourquoi nous partons du principe que quelqu’un initialise le contexte au commencement de la réunion (via une interface par exemple). Le contexte choisi par cette personne est donc, dans notre cas, « Professionnel ».
+			\paragraph{}On peut imaginer que une analyse de la discussion par le système pour que celui-ci détermine le contexte à traduire, mais cette même analyse rendrait le processus de traduction plus lent, et la discussion moins dynamique; or le but est ici de faire un système quasi instantané. C'est pourquoi nous partons du principe que quelqu'un initialise le contexte au commencement de la réunion (via une interface par exemple). Le contexte choisi par cette personne est donc, dans notre cas, « Professionnel ».
 
 			\paragraph{Identification et langues}
 
 			\paragraph{}Une fois le contexte choisi, la réunion débute. Les personnes commencent alors à parler. C'est ici que nous trouvons alors un second problème : comment détecter quel locuteur s'exprime et dans quelle langue ?
 
-			\paragraph{}Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures vocales afin d’identifier chaque personne, dans le cas où le système ne possède qu’un micro central. La chose est possible, mais si un seul micro est nécessaire, le processus de traduction nécessite que chacun des participants ait une oreillette. En effet, sans cela, chacune des traduction se ferait entendre dans la salle en même temps, créant alors une confusion pour tous les participants.
+			\paragraph{}Afin de répondre à la première question, nous avons pensé à un système qui analyse les fréquences des voix ainsi que leurs signatures vocales afin d'identifier chaque personne, dans le cas où le système ne possède qu'un micro central. La chose est possible, mais si un seul micro est nécessaire, le processus de traduction nécessite que chacun des participants ait une oreillette. En effet, sans cela, chacune des traduction se ferait entendre dans la salle en même temps, créant alors une confusion pour tous les participants.
 
 			\paragraph{}Mais le micro central amène une autre problèmatique : chaque parole serait retranscrite, même à celui qui les prononce, créant pour lui un écho malvenu. Le processus d'identification des voix à travers un micro unique recquiert également une analyse des voix beaucoup plus poussée. Il nous a donc paru plus simple de joindre aux oreillettes précédemment citées un micro dans lequel parle le participant. De cette manière, chaque personne sera identifiée de manière simple et sûre.
 
-			\paragraph{}Pour ce qui est de la seconde question, à savoir l'identification de langue des participants, il s’agit de la détecter en fonction des mots prononcés par ceux-ci. Le processus reprend la manière de traduire de Google Translate, mais à l'oral. Nous reviendront sur la réalisation de cette tâche plus tard.
+			\paragraph{}Pour ce qui est de la seconde question, à savoir l'identification de langue des participants, il s'agit de la détecter en fonction des mots prononcés par ceux-ci. Le processus reprend la manière de traduire de Google Translate, mais à l'oral. Nous reviendront sur la réalisation de cette tâche plus tard.
 
 			\paragraph{Reconnaissance automatique de la parole}
 
-			\paragraph{}A ce stade, il nous faut encore réussir à mettre sous format textuel ce qu’une personne dit afin de le traduire par la suite. Il existe des logiciels spécialisés dans ce travail, qui sont les logiciels de Speech To Text, ou en français : \og Reconnaissance automatique de la parole \fg. Il existe une multitude de logiciels efficaces dans cette partie du processus, c’est pourquoi nous n’allons pas plus en parler pour le moment et estimer que cette tâche est remplie.
-
+			\paragraph{}A ce stade, il nous faut encore réussir à mettre sous format textuel ce qu'une personne dit afin de le traduire par la suite. Il existe des logiciels spécialisés dans ce travail, qui sont les logiciels de Speech To Text, ou en français : \og Reconnaissance automatique de la parole \fg. Il existe une multitude de logiciels efficaces dans cette partie du processus, c'est pourquoi nous n'allons pas plus en parler pour le moment et estimer que cette tâche est remplie.
+			
+			\clearpage
+			
 			\paragraph{Traduction}
 
-			\paragraph{}Maintenant que l’on dispose du texte, nous pouvons enfin le traduire vers les langues de chacun des autres participants présents dans la salle. Pour se faire, nous allons devoir utiliser un traducteur, seulement, pour parfaire la traduction, le traducteur devra prendre en compte le contexte de la discussion afin de choisir les traductions les plus adaptées. 
+			\paragraph{}Maintenant que l'on dispose du texte, nous pouvons enfin le traduire vers les langues de chacun des autres participants présents dans la salle. Pour se faire, nous allons devoir utiliser un traducteur, seulement, pour parfaire la traduction, le traducteur devra prendre en compte le contexte de la discussion afin de choisir les traductions les plus adaptées. 
 
 			\paragraph{Synthèse vocale}
 
-			\paragraph{}Nous pouvons alors nous concentrer vers la restitution de la traduction à chaque interlocuteur. Pour réaliser cela, nous allons devoir faire appel à un système de synthèse vocale. Une synthèse vocale a pour but d’exprimer un texte par la parole. Dans le cas de notre système, cette synthèse doit être la plus naturelle et humaine possible, afin de conserver l'authenticité des phrases mais aussi de garder la dimension humaine et sociale de la discussion. De nos jours, il existe une multitude de logiciels de synthèse vocale, nous en parlerons plus en détails dans une autre partie.
+			\paragraph{}Nous pouvons alors nous concentrer vers la restitution de la traduction à chaque interlocuteur. Pour réaliser cela, nous allons devoir faire appel à un système de synthèse vocale. Une synthèse vocale a pour but d'exprimer un texte par la parole. Dans le cas de notre système, cette synthèse doit être la plus naturelle et humaine possible, afin de conserver l'authenticité des phrases mais aussi de garder la dimension humaine et sociale de la discussion. De nos jours, il existe une multitude de logiciels de synthèse vocale, nous en parlerons plus en détails dans une autre partie.
 
 			\paragraph{Émotions}
 
@@ -229,8 +231,8 @@
 				\subsubsection{Étude du signal (décodage acoustico-phonétique)}
 
 					\paragraph{}L'étude du signal s'opère le plus souvent via une analyse paramétrique de ce dernier et permet ainsi de retrouver l'élément acoustique le plus probable correspondant au signal.
-					\paragraph{}Lors de l'acquisition des données acoustiques, des pertes liées au matériel (plage de fréquence du microphone) sont inévitables, ainsi que des perturbations liées à l’environnement (réverbération de la salle, bruit ambiant). Nous n’étudierons pas ici les différentes solutions qui existent permettant d’amoindrir l'impact des deux facteurs précédemment énoncés et passerons directement à l'étude du signal nettoyé.
-					\paragraph{}L'étude se fait alors par fenêtrage, le signal de la parole n'évoluant que peu sur des durées de quelques millisecondes (stationnarité locale). Sur chaque fenêtre une analyse spectrale est alors effectuée, par exemple grâce à la décomposition du signal sur la fenêtre considérée via une transformée de fournier puis en analysant le résultat avec un ensemble de filtres passe-bande permettant le représentation de l’échantillon par un sonagramme. Il suffirait alors d'effectuer une reconnaissance de forme en comparant le résultat à notre bibliothèque et en conservant l'élément le plus probable.
+					\paragraph{}Lors de l'acquisition des données acoustiques, des pertes liées au matériel (plage de fréquence du microphone) sont inévitables, ainsi que des perturbations liées à l'environnement (réverbération de la salle, bruit ambiant). Nous n'étudierons pas ici les différentes solutions qui existent permettant d'amoindrir l'impact des deux facteurs précédemment énoncés et passerons directement à l'étude du signal nettoyé.
+					\paragraph{}L'étude se fait alors par fenêtrage, le signal de la parole n'évoluant que peu sur des durées de quelques millisecondes (stationnarité locale). Sur chaque fenêtre une analyse spectrale est alors effectuée, par exemple grâce à la décomposition du signal sur la fenêtre considérée via une transformée de fournier puis en analysant le résultat avec un ensemble de filtres passe-bande permettant le représentation de l'échantillon par un sonagramme. Il suffirait alors d'effectuer une reconnaissance de forme en comparant le résultat à notre bibliothèque et en conservant l'élément le plus probable.
 					\paragraph{}Malheureusement il n'est pas possible d'effectuer directement une telle opération, la durée de chaque unité à reconnaître n'étant pas stable il faut pouvoir faire coïncider le signal relevé avec les données de notre bibliothèque via des procédés de normalisation temporelle.
 					\paragraph{}Pour se faire il existe plusieurs modèles notamment les modèles Markoviens Cachées, les modèles neuronimétriques ou encore les algorithmes de comparaison dynamique.
 
@@ -250,7 +252,7 @@
 
 				\paragraph{}Quand aux techniques de reconnaissances se posent trois questions : l'unité à utiliser, le modèle de décodage acoustico-phonétique et l'algorithme de reconnaissance lexicale/grammaticale; ce dernier étant directement liée au choix du modèle de décodage acoustico-phonétique. 
 				\paragraph{}Dans le cas de la parole continue, il a été identifié que l'unité la plus adaptée était le phonème : en effet l'ordre de grandeur des phonèmes nécessaire à la modélisation d'un langage est très faible, même lors de l'utilisation de phonèmes contextualisés (prenant en compte de possibles liaisons) et permet ainsi une relative légèreté du dictionnaire comportant les mots reconnaissable. Nous utiliserons donc le phonème.
-				\paragraph{}Les autres paramètres n’ayant pas d’impact particulier sur le coeur de notre recherche, nous sélectionnerons le système le plus utilisé, les Modèles de Markov cachés, celui-ci ayant déjà prouvé son efficacité.
+				\paragraph{}Les autres paramètres n'ayant pas d'impact particulier sur le coeur de notre recherche, nous sélectionnerons le système le plus utilisé, les Modèles de Markov cachés, celui-ci ayant déjà prouvé son efficacité.
 
 		\section{Traduction}\label{traduction}
 
@@ -290,7 +292,7 @@
 					\item \textbf{Le transfert direct} : il n'y a pas presque pas d'analyse, toute la traduction se joue au niveau du transfert. Les méthodes de traductions utilisant ce type de transfert sont la traduction par l'exemple et la traduction statistique. Dans cette possibilité, la traduction n'est qu'un processus de décodage.
 					\item \textbf{Le transfert syntaxique} : ici, le transfert est syntaxique, c'est à dire que l'on va s'appuyer sur les arbres syntaxique des langues afin de construire des phrases de même sens. La méthode de traductions utilisant ce type de transfert est la traduction automatique à base de règles.
 					\item \textbf{Le transfert sémantique} : le transfert est sémantique, c'est à dire que l'on traduit à partir du sens du texte d'origine. Il s'agit de la méthode de traduction que nous utilisons (les humains). Il n'y a que très peu de traducteur automatique se basant sur le transfert sémantique, de par sa complexité à modéliser les sémantiques ainsi que par sa difficulté à la mettre en place.
-					\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l’inter-langue sous le nom de « langue pivot ». Cette méthode n'a pas eu de succès chez ceux qui l'ont essayée.
+					\item \textbf{L'interlangue} : cette possibilité supprime le transfert. La traduction devient alors universelle. Et il ne reste plus que les phases d'analyse et de génération. On désigne également l'inter-langue sous le nom de « langue pivot ». Cette méthode n'a pas eu de succès chez ceux qui l'ont essayée.
 				\end{itemize}
 
 				\paragraph{}De nos jours, les moteurs de traduction utilisent pour la plupart la traduction par règles ou la traduction statistique. Mais il existe une approche utilisant ces deux systèmes de traductions qu'utilise les leaders du marché que sont Systran, Google Translate et Bing Translator.
@@ -347,7 +349,7 @@
 
 					\paragraph{}La traduction par l'exemple, également appelée traduction par analogie, réside dans le principe de prendre des petites phrases courtes qui sont traduites dans plusieurs langues et d'identifier ces phrases dans le texte à traduire. Cela permet une meilleure préservation du sens des phrases. Le résultat est donc plutôt satisfaisant.
 
-					\paragraph{}La traduction par l’exemple s'introduit entre la traduction par règles et la traduction statistique. En effet, beaucoup d’approches de la traduction intègrent des règles et des techniques statistiques.
+					\paragraph{}La traduction par l'exemple s'introduit entre la traduction par règles et la traduction statistique. En effet, beaucoup d'approches de la traduction intègrent des règles et des techniques statistiques.
 					Cependant, certaines caractéristiques dissocient la traduction par l'exemple de la traduction par règle et de la traduction statistique. Dans la traduction par l'exemple, on isole le texte par phrase.
 
 					\paragraph{}Voici les principales étapes de la traduction par l'exemple :
@@ -357,7 +359,7 @@
 						\item \textbf{Recomposition} des séquences afin de former une phrase dans la langue d'origine
 					\end{itemize}
 					 
-					\paragraph{}La traduction par l'exemple est particulièrement performante avec les verbes à particule - verbes qui changent de sens selon la particule (adverbe, adposition, nom ou adjectif) comme « mettre bas » ou « passer outre » en français - qui sont très présent dans les langues germaniques. Ce type de traduction est particulièrement performant avec ces verbes car il s’appuie sur des séquences de phrases, le contexte est donc conservé et la génération d'un verbe à particule est donc beaucoup plus aisée.
+					\paragraph{}La traduction par l'exemple est particulièrement performante avec les verbes à particule - verbes qui changent de sens selon la particule (adverbe, adposition, nom ou adjectif) comme « mettre bas » ou « passer outre » en français - qui sont très présent dans les langues germaniques. Ce type de traduction est particulièrement performant avec ces verbes car il s'appuie sur des séquences de phrases, le contexte est donc conservé et la génération d'un verbe à particule est donc beaucoup plus aisée.
 					Cependant, cette traduction nécessite une base de données très fournie pour fonctionner correctement. Cette base de données devra être alimentée par des textes de références traduits dans chaque langue. Il s'agit d'un lourd investissement.
 
 			\clearpage
@@ -387,7 +389,7 @@
 					\paragraph{}L'ensemble des modules permettant la décomposition du texte est désigné comme le module de traitement automatique du langage naturel. Plusieurs traitements consécutifs sont alors exécutés sur le texte pour le transcrire sous une forme lisible par le synthétiseur vocal. On retrouve alors les traitements principaux suivants : 
 					
 					\paragraph{La phase de nettoyage}
-					\paragraph{}Le but est d’aplanir le texte en y remplaçant toutes les occurrences d'abréviations, de chiffre et nombre, de caractères spéciaux, unités de mesures ou encore devises par leur équivalent en toutes lettres transformant alors « num. tel. 01.00.00.00.01 \$2 la minute à partir de 08h30 »  en « numéro téléphone  zéro un, zéro zéro, zéro zéro, zéro zéro, zéro un deux dollars la minute à partir de huit heures trente ».
+					\paragraph{}Le but est d'aplanir le texte en y remplaçant toutes les occurrences d'abréviations, de chiffre et nombre, de caractères spéciaux, unités de mesures ou encore devises par leur équivalent en toutes lettres transformant alors « num. tel. 01.00.00.00.01 \$2 la minute à partir de 08h30 »  en « numéro téléphone  zéro un, zéro zéro, zéro zéro, zéro zéro, zéro un deux dollars la minute à partir de huit heures trente ».
 					\paragraph{}Dans les langues concernées, une étape de ré-accentuation peut être à prévoir, par exemple dans les cas où les accents ne seraient pas présents dans les mots en lettres majuscules. Lors de cette étape, il peut aussi être intéressant de repérer et traiter les acronymes comportant des voyelles qui ne sont pas lus comme un mot, et ainsi décomposer l'acronyme « PIB » est nécessaire alors que « OTAN » ou encore « PHP » peuvent être laisser comme tel.
 					
 				\paragraph{L'étiquetage morphosyntaxique}
@@ -402,7 +404,7 @@
 				\paragraph{}Dans un premier temps pour effectuer cette synthèse, les chercheurs se sont orientés vers des stratégies dites par règles, qui nécessitent très peu d'espace en mémoire (les sons ne sont pas enregistrés, ils sont générés via le traitement d'un signal). Cette approche donne malheureusement des résultats très éloignés de la voix humaine et nuit ainsi à la compréhension. Avec l'augmentation de la taille des espaces mémoires dans les systèmes informatiques, une nouvelle approche a pu voir le jour. Plutôt que de générer entièrement le son, il est question de concaténer un ensemble de sons près-enregistré pour reproduire la parole. Cette deuxième approche, selon son implémentation, permet alors des résultats bien plus proches de la voix humaine, étant donné que les sons émis ne sont que des enregistrements réels.
 				
 				\paragraph{La synthèse par règles}
-				\paragraph{}Cette forme de synthèse aussi appelée synthèse par formants, et s’appuie sur la modélisation du spectre sonore de la parole en reproduisant généralement les trois premiers formants d'un phonème. Si cette technique a l'avantage d'être très légère, autant en mémoire qu'en traitement, elle ne permet que des résultats très éloignés de la voix humaine et de la prosodie. Et donc, à fortiori, la reproduction des émotions n'est ni vraisemblable ni agréable. Ce processus n'est donc pas du tout adapté à nos besoins.
+				\paragraph{}Cette forme de synthèse aussi appelée synthèse par formants, et s'appuie sur la modélisation du spectre sonore de la parole en reproduisant généralement les trois premiers formants d'un phonème. Si cette technique a l'avantage d'être très légère, autant en mémoire qu'en traitement, elle ne permet que des résultats très éloignés de la voix humaine et de la prosodie. Et donc, à fortiori, la reproduction des émotions n'est ni vraisemblable ni agréable. Ce processus n'est donc pas du tout adapté à nos besoins.
 				
 				\paragraph{La synthèse par concaténation}
 				\paragraph{}Elle consiste en l'assemblage de plusieurs unités (pouvant varier) sonores près-enregistrées pour reformer le texte à énoncer. Etant donné que cette technique se base sur des enregistrement de voix humaines, elle permet des résultats bien plus naturels. Se posent alors deux questions : 
@@ -445,27 +447,27 @@
 
 						\paragraph{L'activité physique du corps}
 						\paragraph{}Lorsque l'on ressent une émotion, il arrive que nous effectuons des gestes corporels conscients ou même inconscients. Cela peut venir d'un tic que nous avons face à une certaines émotion (même faible), ou alors cela peut être déclenché par une émotion forte.
-						\paragraph{}Dans le cas où il s’agirait d'un tic, la personne va par exemple se ronger les ongles si elle commence a être stressée ou inquiète. Mais dans le même cas, une autre personne pourrait commencer à « jouer » avec ses doigts, les taper sur une table ou autre. En fait, ce genre de réaction face à une émotion dépend de chaque personne et peut varier selon les gens. Cependant, on peut quand même identifier certaines réaction,s qui sont plutôt universelles dans le sens de ce qu'elle traduise (se ronger les ongles par exemple, tout le monde ne le fait pas mais lorsque quelqu'un le fait, c'est généralement parce qu'il est stressé).
+						\paragraph{}Dans le cas où il s'agirait d'un tic, la personne va par exemple se ronger les ongles si elle commence a être stressée ou inquiète. Mais dans le même cas, une autre personne pourrait commencer à « jouer » avec ses doigts, les taper sur une table ou autre. En fait, ce genre de réaction face à une émotion dépend de chaque personne et peut varier selon les gens. Cependant, on peut quand même identifier certaines réaction,s qui sont plutôt universelles dans le sens de ce qu'elle traduise (se ronger les ongles par exemple, tout le monde ne le fait pas mais lorsque quelqu'un le fait, c'est généralement parce qu'il est stressé).
 						\paragraph{}En outre, dans le cas où il s'agirait d'une réaction provoquée par une émotion forte, cela se traduit généralement plus par un changement de comportement physique. Par exemple, en cas de fort énervement, il arrive qu'une personne commence à « gesticuler », qu'elle ne tienne plus en place. Ses mouvements deviennent plus rapides et plus fréquents. Ce genre de réactions sont plus généralisées chez les individus que la présence de tic, néanmoins tchaque personne est différente, et il peut arriver qu'une personne ne réagisse pas de la même façon face à une émotion forte.
 						
 						\paragraph{L'activité physique du visage}
 						\paragraph{}Le visage d'un individu est l'élément physique qui transmet le plus d'émotions. En effet, le visage est la partie du corps qui exprime le plus les sentiments (et donc les émotions) d'un individu. De nombreuses études ont été menées afin d'identifier clairement les réactions faciales des individus face à une émotion. Nous connaissons maintenant chaque interprétations possible d'une émotion chez un humain.
 						
 						\paragraph{Les marques sémantiques d'émotions}
-						\paragraph{}De manière générale, la structure des phrases d'un être humain selon ses émotions est assez figée, l’expression sémantique en revanche est extrêmement variée. On peut observer cette variété dans l'expression de demandes très semblables dans leur objet (même chez des personnes d'un même milieu de travail).
+						\paragraph{}De manière générale, la structure des phrases d'un être humain selon ses émotions est assez figée, l'expression sémantique en revanche est extrêmement variée. On peut observer cette variété dans l'expression de demandes très semblables dans leur objet (même chez des personnes d'un même milieu de travail).
 						\paragraph{}Par exemple, dans le cas d'une assistance technique au sein d'une entreprise, les personnes vont exprimer leur demande mais de façon différente en fonction de leurs émotions. Dans cet exemple, nous pouvons observer quatre catégories de marques sémantiques :
 						\begin{itemize}
-							\item \textbf{L'aspect technique} Par exemple : « Excel est inaccessible », « Les portables ne fonctionnent plus », « Je n’ai plus accès à mes adresses »
-							\item \textbf{Les conséquences} Par exemple : « Je suis paralysé dans mon travail », « J’ai un client qui s’impatiente »
-							\item \textbf{L'état psychologique} Par exemple : « C’est très pénible » 
+							\item \textbf{L'aspect technique} Par exemple : « Excel est inaccessible », « Les portables ne fonctionnent plus », « Je n'ai plus accès à mes adresses »
+							\item \textbf{Les conséquences} Par exemple : « Je suis paralysé dans mon travail », « J'ai un client qui s'impatiente »
+							\item \textbf{L'état psychologique} Par exemple : « C'est très pénible » 
 							\item \textbf{La demande} Par exemple : « Est-ce que vous pourriez nous arranger ça pour de bon ? »
 						\end{itemize}
 						\paragraph{}Ces marques sémantiques sont très intéressantes car elles permettent de déterminer très rapidement l'état psychologique actuel de la personne. Et cela, rien qu'avec une phrase.
 						
 						\paragraph{Les marques phonologiques}
 						\paragraph{}Les marques phonologiques, ou plutôt données phonologiques, sont les très importantes. Ce sont elles qui donneront le plus d'informations sur les émotions d'une personne grâce à la voix. Ce que l'on cherchera à analyser dans ce cadre sera le ton (calme, neutre, élevé) et le débit (lent, normal, rapide). Ces informations, combinées aux marques sémantiques, permettront alors de déterminer l'émotion d'une personne de manière fiable.
-						\paragraph{}Afin de montrer comment nous pouvons analyser ces données phonologique et d'identifier précisément ce qu'elles sont, nous allons nous appuyer sur une étude du Laboratoire CLIPS (communication langagière et interaction Personne-Système) de Grenoble effectuée par Solange Hollard, Mutsuko Tomokiyo et Denis Tuffelli, intitulée « Une approche de l’expression oral des émotions : étude d'un corpus réel ».
-						\paragraph{}Dans cette étude, ils analysent notamment les données phonologiques d'un énoncé qui est le suivant : « …J’appelle pour deux problèmes, d’une part, donc nos deux ordinateurs sont euh … ne peuvent pas être démarrés suite, suite à une coupure d’électricité cette nuit ».
+						\paragraph{}Afin de montrer comment nous pouvons analyser ces données phonologique et d'identifier précisément ce qu'elles sont, nous allons nous appuyer sur une étude du Laboratoire CLIPS (communication langagière et interaction Personne-Système) de Grenoble effectuée par Solange Hollard, Mutsuko Tomokiyo et Denis Tuffelli, intitulée « Une approche de l'expression oral des émotions : étude d'un corpus réel ».
+						\paragraph{}Dans cette étude, ils analysent notamment les données phonologiques d'un énoncé qui est le suivant : « …J'appelle pour deux problèmes, d'une part, donc nos deux ordinateurs sont euh … ne peuvent pas être démarrés suite, suite à une coupure d'électricité cette nuit ».
 						\paragraph{}Dans cette énoncé, ils compareront la durée, l'énergie et le pitch du mot numéraire « deux » qui est prononcé deux fois dans l'énoncé, la première de façon neutre et la deuxième de façon insistante.
 						
 						\clearpage
@@ -479,7 +481,7 @@
 							\label{fig:TableauAnalyseDeux}
 						\end{figure}
 						
-						\paragraph{}On remarque alors que l’énergie, le pitch et même la durée sont supérieurs lorsque le mot est prononcé avec de l'émotion. On notera également l’écart avec l’énergie et le pitch du mot précédent qui est également plus élevé.
+						\paragraph{}On remarque alors que l'énergie, le pitch et même la durée sont supérieurs lorsque le mot est prononcé avec de l'émotion. On notera également l'écart avec l'énergie et le pitch du mot précédent qui est également plus élevé.
 						
 						\paragraph{}Grâce a cette analyse, on peut alors imaginer analyser chaque mot de la langue dans chaque émotion et ainsi se constituer une base de données contenant toutes les données phonologiques dont nous avons besoin afin d'identifier une émotion dans l'énoncé d'une personne.		
 						
@@ -487,11 +489,11 @@
 
 						\paragraph{Dans le cadre de notre scénario} nous n'avons pas de caméra qui filme chaque personne de la réunion. Les expressions corporelles et du visage sont donc inutilisables. En revanche, nous pouvons utiliser les marques sémantiques décrites un peu plus haut ainsi que les données phonologiques que nous pourront avoir grâce au micro dans lequel parleront les membres de la réunion.
 						\paragraph{}Techniquement, nous allons donc récupérer l'enregistrement de la phrase prononcée par une personne puis nous allons analyser les données phonologiques, les comparer à notre base de données et nous allons donner à chaque mot un score de probabilité pour chaque émotion. Ensuite, sur l'ensemble des mots de la phrase, nous déterminerons quelle émotion est la plus probable (en fonction des scores).
-						\paragraph{}Parallèlement, nous analyserons les marques sémantiques de la phrase à traduire. Si les marques sémantiques peuvent déceler une émotion dans la phrase, on calculera la probabilité de l'exactitude que ce soit cette émotion-là. Nous aurons déjà une probabilité pour l'émotion déterminée avec les données phonologiques, nous choisirons alors la probabilité la plus forte entre les deux systèmes. Les probabilités pourront ne pas être équivalentes, il pourrait arriver qu'une probabilité de 80\% en données phonologiques soit supérieure en chance de réussite à une probabilité de 90\% en marques sémantiques. C'est pourquoi, il faudra entraîner notre système avec des humains qui vérifieront les résultats fournis par le système et qui ajusteront le calcul de la détermination de l'émotion choisie. Cette phase d’entraînement du système est très importante afin d'avoir un système juste et fiable.
+						\paragraph{}Parallèlement, nous analyserons les marques sémantiques de la phrase à traduire. Si les marques sémantiques peuvent déceler une émotion dans la phrase, on calculera la probabilité de l'exactitude que ce soit cette émotion-là. Nous aurons déjà une probabilité pour l'émotion déterminée avec les données phonologiques, nous choisirons alors la probabilité la plus forte entre les deux systèmes. Les probabilités pourront ne pas être équivalentes, il pourrait arriver qu'une probabilité de 80\% en données phonologiques soit supérieure en chance de réussite à une probabilité de 90\% en marques sémantiques. C'est pourquoi, il faudra entraîner notre système avec des humains qui vérifieront les résultats fournis par le système et qui ajusteront le calcul de la détermination de l'émotion choisie. Cette phase d'entraînement du système est très importante afin d'avoir un système juste et fiable.
 						
 				\subsection{Les interjections}
 				
-				\paragraph{}L'utilisation d'émotions dans la voix permet aussi aux humains de faire passer des messages complexes uniquement dans le ton. Il est ainsi possible de montrer de l’engouement, un total désaccord ou désintérêt par de simples interjections. Nous avons choisi d'ignorer ce type de vocalisation qui sont à la foi complexe à détecter et à reproduire fidèlement. Il nous a semblé plus nuisible à la traduction de convier une mauvaise émotion par la synthèse d'une interjection sur le mauvais ton que de simplement l'ignorer.
+				\paragraph{}L'utilisation d'émotions dans la voix permet aussi aux humains de faire passer des messages complexes uniquement dans le ton. Il est ainsi possible de montrer de l'engouement, un total désaccord ou désintérêt par de simples interjections. Nous avons choisi d'ignorer ce type de vocalisation qui sont à la foi complexe à détecter et à reproduire fidèlement. Il nous a semblé plus nuisible à la traduction de convier une mauvaise émotion par la synthèse d'une interjection sur le mauvais ton que de simplement l'ignorer.
 
 				\subsection{Retranscription des émotions}
 				
@@ -516,6 +518,8 @@ Notre système devra pouvoir restituer des émotions dans plusieurs langues ce qui
 				\paragraph{}Notre dispositif ne comprend pas non plus de reproduction de visage qui pourrait aider à exprimer une émotions, mais dans notre contexte, les participants sont présents dans une même pièce. Les expressions du corps et du visage sont alors visible directement sur le locuteur. De ce fait, un autre risque peut immerger : notre système ayant forcément un délai entre la locution originel et la retranscription, en cas de changement rapide dans les émotions véhiculées par l'orateur, les indices visuels pourrait ne pas corrélé avec ce que les interlocuteurs sont entrain d'entendre. Ne voyant pas de solutions commodes nous avons choisi d'ignorer ce problème. 
 
 				\paragraph{}Dans une réunion classique, le ratio entre phrases légèrement tintées d'émotions et marques d'émotions extrême tourne fortement en faveur de la nuance. Notre choix devra donc se porter sur un système compétent dans la synthèse de multiple nuance d'une émotion. Ce choix est d'autant plus appuyé par notre contexte, si nous considérons que tous les participants sont dans une même pièce en cas d'éclat vif d'une émotion cela sera perceptible par tous, directement.
+			
+			\clearpage
 			
 %% NEW STUFF END					
 						\paragraph{Systèmes à sélection d'unité}
@@ -600,10 +604,10 @@ Notre système devra pouvoir restituer des émotions dans plusieurs langues ce qui
 	\chapter*{Références}\label{references}
 	
 		\begin{itemize}
-			\item \textbf{Appariement de phrases courtes pour la traduction automatique par l’exemple} par Julien Gosme (2009) - Utilisation dans la partie "Traduction par l'exemple"
+			\item \textbf{Appariement de phrases courtes pour la traduction automatique par l'exemple} par Julien Gosme (2009) - Utilisation dans la partie "Traduction par l'exemple"
 			\item \textbf{Traduction automatique} par Wikipédia - Utilisation dans la partie "Traduction"
 			\item \textbf{Traduction} par Wikipédia - Utilisation dans la partie "Traduction"
-			\item \textbf{Introduction à la traduction guidée par l’exemple (Traduction par analogie)}  par Michael Carl (2003) - Utilisation dans la partie "Traduction par l'exemple"
+			\item \textbf{Introduction à la traduction guidée par l'exemple (Traduction par analogie)}  par Michael Carl (2003) - Utilisation dans la partie "Traduction par l'exemple"
 			\item \textbf{Comprendre la Traduction Automatique} par Systran - Utilisation dans la partie "Traduction statistique" et "Traduction par règles"
 			\item \textbf{La traduction automatique statistique, comment ça marche ?} par Li Gong (2013) - Utilisation dans la partie "Traduction statistique"
 			\item \textbf{Rule-based machine translation} par Wikipédia (EN) - Utilisation dans la partie "Traduction par règles"

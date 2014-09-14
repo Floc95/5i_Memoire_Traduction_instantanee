@@ -1,29 +1,179 @@
 \select@language {french}
-\contentsline {chapter}{\numberline {1}Introduction \`a la probl\'ematique}{2}
-\contentsline {section}{\numberline {1.1}Le sc\'enario}{2}
-\contentsline {paragraph}{Notre sc\'enario}{2}
-\contentsline {section}{\numberline {1.2}Les composantes}{2}
-\contentsline {paragraph}{Le contexte}{2}
-\contentsline {paragraph}{Identification et langues}{3}
-\contentsline {paragraph}{Reconnaissance automatique de la parole}{3}
-\contentsline {paragraph}{Traduction}{3}
-\contentsline {paragraph}{Synth\`ese vocale}{3}
-\contentsline {paragraph}{\'Emotions}{3}
-\contentsline {chapter}{\numberline {2}R\'esolution du syst\`eme}{5}
-\contentsline {section}{\numberline {2.1}Reconnaissance automatique de la parole}{5}
-\contentsline {subsection}{\numberline {2.1.1}Pr\'esentation et but}{5}
-\contentsline {subsection}{\numberline {2.1.2}Solutions}{5}
-\contentsline {section}{\numberline {2.2}Traduction}{5}
-\contentsline {subsection}{\numberline {2.2.1}Pr\'esentation et but}{5}
-\contentsline {subsection}{\numberline {2.2.2}Solutions}{5}
-\contentsline {section}{\numberline {2.3}Synth\`ese vocale}{5}
-\contentsline {subsection}{\numberline {2.3.1}Pr\'esentation et but}{5}
-\contentsline {subsection}{\numberline {2.3.2}Solutions}{5}
-\contentsline {section}{\numberline {2.4}\'Emotions}{6}
-\contentsline {subsection}{\numberline {2.4.1}Pr\'esentation et but}{6}
-\contentsline {subsection}{\numberline {2.4.2}Travaux sur le sujet}{6}
-\contentsline {subsection}{\numberline {2.4.3}Solutions}{6}
-\contentsline {chapter}{\numberline {3}Aller plus loin}{7}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {chapter}{\numberline {1}Introduction \`a la probl\'ematique}{5}
+\contentsline {section}{\numberline {1.1}Le sc\'enario}{5}
+\contentsline {paragraph}{Notre sc\'enario}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{6}
+\contentsline {section}{\numberline {1.2}Les composantes}{6}
+\contentsline {paragraph}{Le contexte}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{Identification et langues}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{Reconnaissance automatique de la parole}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{Traduction}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{Synth\`ese vocale}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{\'Emotions}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{9}
+\contentsline {chapter}{\numberline {2}R\'esolution du syst\`eme}{10}
+\contentsline {section}{\numberline {2.1}Reconnaissance automatique de la parole}{10}
+\contentsline {paragraph}{Introduction}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.1.1}Fonctionnement g\'en\'eral}{10}
+\contentsline {paragraph}{Petit historique}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{Parole continue}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {subsubsection}{\'Etude du signal (d\'ecodage acoustico-phon\'etique)}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {subsubsection}{Reconstruction s\'emantique}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {subsection}{\numberline {2.1.2}Et pour nous ?}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {section}{\numberline {2.2}Traduction}{14}
+\contentsline {subsection}{\numberline {2.2.1}Pr\'esentation et but}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.2.2}Solutions}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {subsubsection}{Traduction statistique}{17}
+\contentsline {paragraph}{La traduction automatique statistique}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{19}
+\contentsline {subsubsection}{Traduction par r\`egles}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{20}
+\contentsline {subsubsection}{Traduction par l'exemple}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{21}
+\contentsline {subsection}{\numberline {2.2.3}Notre choix}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {section}{\numberline {2.3}Synth\`ese vocale}{22}
+\contentsline {subsection}{\numberline {2.3.1}Pr\'esentation et but}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsection}{\numberline {2.3.2}Principes g\'en\'eraux}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {subsubsection}{Traitement automatique du langage naturel}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{La phase de nettoyage}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{L'\'etiquetage morphosyntaxique}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{La phon\'etisation}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {subsubsection}{Synth\'etiseur vocale}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{La synth\`ese par r\`egles}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{La synth\`ese par concat\'enation}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {2.3.3}Dans notre cas}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{27}
+\contentsline {section}{\numberline {2.4}\'Emotions}{27}
+\contentsline {subsection}{\numberline {2.4.1}Pr\'esentation et but}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {subsection}{\numberline {2.4.2}Identification des \'emotions}{28}
+\contentsline {subsubsection}{Quels sont les facteurs d'identification des \'emotions ?}{28}
+\contentsline {paragraph}{L'activit\'e physique du corps}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{L'activit\'e physique du visage}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{Les marques s\'emantiques d'\'emotions}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{Les marques phonologiques}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {subsubsection}{Comment allons-nous les identifier ?}{31}
+\contentsline {paragraph}{Dans le cadre de notre sc\'enario}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{32}
+\contentsline {subsection}{\numberline {2.4.3}Les interjections}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {subsection}{\numberline {2.4.4}Retranscription des \'emotions}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {subsubsection}{Retranscription par synth\`ese vocale}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{Syst\`emes \`a s\'election d'unit\'e}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{Syst\`eme bas\'e sur les mod\`eles de Markov cach\'e}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{36}
+\contentsline {paragraph}{}{36}
+\contentsline {paragraph}{}{36}
+\contentsline {subsubsection}{Pour nos besoins}{36}
+\contentsline {paragraph}{}{36}
+\contentsline {paragraph}{}{36}
+\contentsline {paragraph}{}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {chapter}{\numberline {3}Aller plus loin}{38}
+\contentsline {subsection}{\numberline {3.0.5}Au niveau de la d\'etection des \'emotions}{38}
+\contentsline {paragraph}{}{38}
+\contentsline {paragraph}{}{38}
+\contentsline {subsection}{\numberline {3.0.6}\'Emotions et traduction}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {subsection}{\numberline {3.0.7}Synth\`ese de l'\'emotion}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {paragraph}{}{39}
 \vspace *{\baselineskip }
-\contentsline {chapter}{Liste des Figures}{8}
-\contentsline {chapter}{Liste des Tableaux}{9}
